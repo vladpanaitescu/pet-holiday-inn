@@ -1,0 +1,7 @@
+Create a minimal flat logo mark in EXACTLY the visual style of the reference image: a single flat dark charcoal color (#2f2f2f) on a pure white background, no gradients, no outlines, no texture. The animal's face is defined by WHITE NEGATIVE SPACE between big smooth organic dark shapes (ears, head patches), exactly like the reference spaniel: crescent-shaped happy eyes with a tiny white highlight, a glossy rounded nose blob with a white highlight, smooth calligraphic curves, crisp vector-like edges.
+
+Subject: a FRIENDLY, HAPPY GOLDEN RETRIEVER head and upper chest, three-quarter view, the head turned slightly to the LEFT (looking towards the viewer's left). Golden retriever traits: soft medium-length floppy ears with gentle feathered (wavy) fur edges, broad kind forehead, square friendly muzzle, open smiling mouth with the tongue out, fluffy chest. It must look warm, cheerful and welcoming — not sad.
+
+Behind the dog, a LARGE palm tree drawn in the same flat negative-space style and the same dark color: the trunk rises from behind the dog's right shoulder and LEANS TO THE RIGHT, with big generous fronds spreading above and to the right of the head, so the palm clearly reads as a palm tree and frames the dog. The palm and dog stay separated by thin white gaps so both silhouettes read clearly.
+
+Composition: centered, whole mark fully visible with generous white margin on all sides. No text, no letters, no circle, no frame, no background shapes, no sun. Simple enough to work as a 32px favicon and as a large sign.

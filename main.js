@@ -38,7 +38,9 @@
   let lastY = 0;
   const onScroll = y => {
     nav.classList.toggle("is-solid", y > 40);
-    nav.classList.toggle("is-hidden", y > 500 && y > lastY && !document.body.classList.contains("menu-open"));
+    // se ascunde la scroll în jos, reapare imediat la scroll în sus
+    if (document.body.classList.contains("menu-open") || y <= 300 || y < lastY - .5) nav.classList.remove("is-hidden");
+    else if (y > lastY + .5) nav.classList.add("is-hidden");
     lastY = y;
     $(".fab").classList.toggle("is-on", y > innerHeight * .8 && y < document.body.scrollHeight - innerHeight * 1.8);
   };
@@ -81,7 +83,7 @@
     const t = id.length > 1 && $(id);
     if (!t) return;
     e.preventDefault();
-    if (lenis) lenis.scrollTo(t, { offset: id === "#acasa" ? 0 : -70, duration: 1.4 });
+    if (lenis) { lenis.start(); lenis.scrollTo(t, { offset: id === "#acasa" ? 0 : -70, duration: 1.4 }); }
     else t.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
   }));
 
@@ -160,7 +162,7 @@
       $$(".cabin").forEach(c => {
         gsap.from($$(".cabin__body > *", c), { y: 30, opacity: 0, stagger: .05, duration: .8, ease: "power3.out",
           scrollTrigger: { trigger: c, containerAnimation: tween, start: "left 80%" } });
-        gsap.fromTo($(".cabin__img img", c), { xPercent: -8, scale: 1.15 }, { xPercent: 8, ease: "none",
+        gsap.fromTo($$(".cabin__img img", c), { xPercent: -8, scale: 1.15 }, { xPercent: 8, ease: "none",
           scrollTrigger: { trigger: c, containerAnimation: tween, start: "left right", end: "right left", scrub: true } });
       });
     });
@@ -180,6 +182,11 @@
 
     // Servicii, Instagram
     gsap.from(".svc", { y: 70, opacity: 0, duration: 1, ease: "power3.out", stagger: { each: .08, grid: "auto" }, scrollTrigger: { trigger: ".services__grid", start: "top 85%" } });
+
+    // Tarife și program
+    gsap.from(".rates__card", { y: 60, opacity: 0, duration: 1, ease: "power3.out", stagger: .12, scrollTrigger: { trigger: ".rates__grid", start: "top 85%" } });
+    gsap.from(".price-list li, .hours__row", { x: -24, opacity: 0, duration: .7, ease: "power3.out", stagger: .05, scrollTrigger: { trigger: ".rates__grid", start: "top 75%" } });
+    gsap.from(".rates__strip > div", { y: 40, opacity: 0, duration: .9, ease: "power3.out", stagger: .1, scrollTrigger: { trigger: ".rates__strip", start: "top 90%" } });
     gsap.from(".insta__item", { y: 60, opacity: 0, rotate: i => (i % 2 ? 3 : -3), duration: 1, ease: "power3.out", stagger: .08, scrollTrigger: { trigger: ".insta__grid", start: "top 90%" } });
 
     // Pași: linia se desenează, cercurile apar
@@ -254,6 +261,53 @@
     });
   }
 
+  /* ---------- Galerii foto pe cabane ---------- */
+  $$(".gal").forEach(g => {
+    const imgs = $$("img", g), dots = $$(".gal__dots button", g);
+    if (imgs.length < 2) return;
+    let i = 0, timer = null, visible = false;
+    const show = n => {
+      i = (n + imgs.length) % imgs.length;
+      imgs.forEach((im, k) => im.classList.toggle("is-on", k === i));
+      dots.forEach((d, k) => d.classList.toggle("is-on", k === i));
+    };
+    const play = () => { clearInterval(timer); if (visible && !reduce) timer = setInterval(() => show(i + 1), 4500); };
+    dots.forEach((d, k) => d.addEventListener("click", e => { e.stopPropagation(); show(k); play(); }));
+    g.addEventListener("click", () => { show(i + 1); play(); });
+    let x0 = null;
+    g.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+    g.addEventListener("touchend", e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { show(i + (dx < 0 ? 1 : -1)); play(); }
+    });
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; visible ? play() : clearInterval(timer); }, { threshold: .4 }).observe(g);
+  });
+
+  /* ---------- Condiții de cazare (popup) ---------- */
+  const cond = $("#cond");
+  let condFrom = null;
+  const openCond = (kind, from) => {
+    condFrom = from;
+    $$("[data-for]", cond).forEach(el => { el.hidden = el.dataset.for !== kind; });
+    cond.hidden = false;
+    requestAnimationFrame(() => cond.classList.add("is-open"));
+    document.body.classList.add("cond-open");
+    if (lenis) lenis.stop();
+    $(".cond__x", cond).focus();
+  };
+  const closeCond = () => {
+    if (cond.hidden) return;
+    cond.classList.remove("is-open");
+    document.body.classList.remove("cond-open");
+    if (lenis) lenis.start();
+    setTimeout(() => { cond.hidden = true; }, 450);
+    condFrom?.focus({ preventScroll: true });
+  };
+  $$("[data-cond]").forEach(b => b.addEventListener("click", () => openCond(b.dataset.cond, b)));
+  $$("[data-close]", cond).forEach(el => el.addEventListener("click", closeCond));
+  addEventListener("keydown", e => { if (e.key === "Escape") closeCond(); });
+
   /* ---------- Formular ---------- */
   const form = $("#form");
   const today = new Date().toISOString().slice(0, 10);
@@ -261,11 +315,45 @@
   ci.min = today; co.min = today;
   ci.addEventListener("change", () => { co.min = ci.value || today; if (co.value && co.value < ci.value) co.value = ""; });
 
-  $$("[data-cabin]").forEach(a => a.addEventListener("click", () => { form.cabana.value = a.dataset.cabin; form.animal.value = "Câine"; }));
-  $$("[data-pet]").forEach(a => a.addEventListener("click", () => { form.animal.value = a.dataset.pet; }));
+  // Pisicile au cazarea lor; cabanele sunt pentru câini
+  const opts = $$("option", form.cabana);
+  const est = $(".form__est", form);
+
+  // Estimare: nopți × tariful ales
+  const estimate = () => {
+    const price = +form.cabana.selectedOptions[0].dataset.price;
+    const nights = ci.value && co.value ? Math.round((new Date(co.value) - new Date(ci.value)) / 864e5) : 0;
+    est.innerHTML = nights > 0 && price
+      ? `<span>${nights} ${nights === 1 ? "noapte" : "nopți"} × ${price} lei</span><b>≈ ${nights * price} lei</b><small>Avans: ${Math.min(nights, 2) * price} lei</small>`
+      : "";
+  };
+  const syncPet = () => {
+    const cat = form.animal.value === "Pisică";
+    opts.forEach(o => { o.hidden = cat ? o.value !== "Pisici" : o.value === "Pisici"; });
+    $$("[data-only]", form).forEach(el => { el.hidden = cat; });
+    if (cat) form.cabana.value = "Pisici";
+    else if (form.cabana.value === "Pisici") form.cabana.value = "Nu știu încă";
+    estimate();
+  };
+  $$('input[name="animal"]', form).forEach(r => r.addEventListener("change", syncPet));
+  [form.cabana, ci, co].forEach(el => el.addEventListener("change", estimate));
+
+  $$("[data-cabin]").forEach(a => a.addEventListener("click", () => { form.animal.value = "Câine"; syncPet(); form.cabana.value = a.dataset.cabin; estimate(); }));
+  $$("[data-pet]").forEach(a => a.addEventListener("click", () => { form.animal.value = a.dataset.pet; syncPet(); }));
+  syncPet();
 
   const err = $(".form__err", form);
-  const bad = (el, on) => (el.closest(".field") || el.closest(".consent")).classList.toggle("is-bad", on);
+  const bad = (el, on) => el.closest(".field, .consent, .seg")?.classList.toggle("is-bad", on);
+
+  // Afecțiuni: la „Da” cerem detalii și arătăm ce tratamente putem administra
+  const med = $(".med", form), medTxt = form.afectiuni_detalii;
+  const syncMed = () => {
+    const yes = form.afectiuni.value === "Da";
+    med.hidden = !yes;
+    medTxt.required = yes;
+  };
+  $$('input[name="afectiuni"]', form).forEach(r => r.addEventListener("change", () => { syncMed(); bad(r, false); }));
+  syncMed();
   $$("input, select, textarea", form).forEach(el => el.addEventListener("input", () => bad(el, false)));
 
   form.addEventListener("submit", async e => {
@@ -294,6 +382,8 @@
       if (!res.ok || !data || !data.ok) throw new Error((data && data.error) || "send");
       form.classList.add("is-sent");
       form.reset();
+      syncPet();
+      syncMed();
     } catch (x) {
       // Previzualizare locală fără PHP: arătăm confirmarea ca demo
       if (/^(localhost|127\.0\.0\.1|)$/.test(location.hostname) || location.protocol === "file:") {

@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<title>Pet Holiday – Brandbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Caveat:wght@500;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: 297mm 210mm; margin: 0; }
+  :root { --forest:#1b2b18; --forest2:#24391f; --olive:#8fa83a; --gold:#e9a93b; --cream:#f6eddb; --kraft:#ead7b0; --ink:#1a2116; --muted:#5d6556; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { margin: 0; background: #888; font-family: Nunito, sans-serif; color: var(--ink); }
+  .page { width: 297mm; height: 210mm; position: relative; overflow: hidden; background: var(--cream); page-break-after: always; break-after: page; padding: 18mm 20mm; margin: 0 auto 8mm; }
+  .page:last-child { page-break-after: auto; break-after: auto; }
+  @media print { html, body { background: none; } .page { margin: 0; } }
+  .dark { background: var(--forest); color: var(--cream); }
+  .kraft { background: var(--kraft); }
+  h1, h2, h3 { font-family: Oswald, sans-serif; text-transform: uppercase; margin: 0; line-height: 1.05; }
+  h2 { font-size: 40pt; color: var(--forest); margin-bottom: 6mm; }
+  .dark h2 { color: var(--cream); }
+  h3 { font-size: 14pt; color: var(--forest); margin-bottom: 2.5mm; letter-spacing: .02em; }
+  .dark h3 { color: var(--gold); }
+  p { margin: 0 0 3mm; font-size: 10.5pt; line-height: 1.55; color: var(--muted); }
+  .dark p { color: rgba(246,237,219,.78); }
+  .eyebrow { display: flex; align-items: center; gap: 3mm; font: 800 8pt Nunito; letter-spacing: .22em; text-transform: uppercase; color: var(--olive); margin-bottom: 4mm; }
+  .eyebrow::before { content: ""; width: 8mm; height: .6mm; background: currentColor; }
+  .dark .eyebrow { color: var(--olive); }
+  .script { font-family: Caveat, cursive; font-weight: 700; }
+  .num { position: absolute; right: 20mm; bottom: 10mm; font: 700 9pt Oswald; color: var(--olive); letter-spacing: .1em; }
+  .foot { position: absolute; left: 20mm; bottom: 10mm; font: 800 7.5pt Nunito; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); opacity: .7; }
+  .dark .foot { color: var(--cream); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14mm; align-items: center; }
+  .card { background: #fff; border-radius: 5mm; padding: 6mm; }
+  .tile { border-radius: 5mm; display: grid; place-items: center; }
+  img { display: block; }
+
+  /* copertă */
+  .cover { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 10mm; }
+  .cover .logo { width: 120mm; height: 120mm; }
+  .cover .title b { display: block; font: 700 64pt/1 Caveat; color: var(--cream); }
+  .cover .title small { display: block; font: 800 11pt Nunito; letter-spacing: .3em; text-transform: uppercase; color: var(--gold); margin-top: 3mm; }
+  .cover .title .bb { font: 700 40pt/1 Oswald; text-transform: uppercase; color: var(--cream); margin-top: 16mm; }
+  .cover .title .yr { font: 600 12pt Nunito; color: rgba(246,237,219,.6); margin-top: 3mm; }
+  .grain { position: absolute; inset: 0; pointer-events: none; opacity: .14; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+
+  /* cuprins */
+  .toc { columns: 2; column-gap: 16mm; margin-top: 4mm; }
+  .toc div { display: flex; gap: 5mm; align-items: baseline; padding: 3mm 0; border-bottom: .3mm dashed rgba(27,43,24,.2); break-inside: avoid; font: 600 13pt Nunito; color: var(--forest); }
+  .toc span { font: 700 13pt Oswald; color: var(--olive); width: 10mm; }
+
+  .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6mm; margin-top: 8mm; }
+  .values .card h3 { font-size: 13pt; }
+  .values .card p { font-size: 9.5pt; margin: 0; }
+  .ico { width: 11mm; height: 11mm; border-radius: 3mm; background: var(--forest); color: var(--gold); display: grid; place-items: center; margin-bottom: 4mm; }
+  .ico svg { width: 6mm; height: 6mm; }
+  .quote { font: 700 30pt/1.15 Oswald; text-transform: uppercase; color: var(--forest); }
+  .quote em { font-style: normal; color: var(--olive); }
+
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 4mm; }
+  .voice .card { padding: 5mm 6mm; }
+  .voice li { font-size: 10pt; line-height: 1.45; color: var(--ink); margin-bottom: 2mm; }
+  .voice ul { margin: 0; padding-left: 4.5mm; }
+  .ok h3 { color: var(--olive); } .no h3 { color: #b8452d; }
+  .traits { display: flex; gap: 3mm; flex-wrap: wrap; margin: 2mm 0 6mm; }
+  .traits span { padding: 2mm 4.5mm; border-radius: 99mm; background: var(--forest); color: var(--cream); font: 800 9pt Nunito; letter-spacing: .06em; }
+
+  /* logo */
+  .anat { position: relative; width: 120mm; height: 120mm; }
+  .anat img { width: 100%; height: 100%; }
+  .lbl { position: absolute; font: 800 8.5pt Nunito; color: var(--forest); background: #fff; padding: 1.2mm 3mm; border-radius: 99mm; white-space: nowrap; box-shadow: 0 1mm 3mm rgba(0,0,0,.12); }
+  .lbl::before { content: attr(data-n); display: inline-grid; place-items: center; width: 4.6mm; height: 4.6mm; border-radius: 50%; background: var(--gold); color: var(--forest); margin-right: 2mm; font-size: 7.5pt; }
+  .legend .row { display: flex; gap: 4mm; margin-bottom: 4.5mm; }
+  .legend .row b { flex: none; width: 7mm; height: 7mm; border-radius: 50%; background: var(--gold); display: grid; place-items: center; font: 700 10pt Oswald; color: var(--forest); }
+  .legend h3 { font-size: 12pt; margin-bottom: 1mm; }
+  .legend p { margin: 0; font-size: 9.5pt; }
+
+  .variants { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 2mm; }
+  .variants figure { margin: 0; }
+  .variants .tile { height: 52mm; }
+  .variants img { width: 44mm; height: 44mm; }
+  .variants figcaption { margin-top: 2mm; font: 800 8.5pt Nunito; color: var(--forest); }
+  .variants figcaption small { display: block; font-weight: 600; color: var(--muted); font-size: 8pt; }
+
+  .lockups { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 6mm; margin-top: 4mm; }
+  .lock { display: flex; align-items: center; gap: 4mm; }
+  .wm b { display: block; font: 700 34pt/1 Caveat; color: var(--forest); }
+  .wm small { display: block; font: 800 7.5pt Nunito; letter-spacing: .28em; text-transform: uppercase; color: var(--muted); margin-top: 1.5mm; white-space: nowrap; }
+  .dark .wm b, .wmdark b { color: var(--cream); } .wmdark small { color: var(--gold); }
+
+  .clear { position: relative; width: 92mm; height: 92mm; margin: 0 auto; }
+  .clear .box { position: absolute; inset: 0; border: .4mm dashed var(--olive); border-radius: 2mm; }
+  .clear .inner { position: absolute; inset: 14mm; }
+  .clear .inner img { width: 100%; height: 100%; }
+  .clear .x { position: absolute; font: 700 10pt Oswald; color: var(--olive); }
+  .sizes { display: flex; align-items: flex-end; gap: 8mm; margin-top: 4mm; }
+  .sizes div { text-align: center; font: 800 8pt Nunito; color: var(--muted); }
+
+  .donts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+  .donts figure { margin: 0; }
+  .donts .tile { height: 44mm; position: relative; background: #fff; overflow: hidden; }
+  .donts img { width: 34mm; height: 34mm; }
+  .donts .tile::after { content: "✕"; position: absolute; top: 2mm; right: 2mm; width: 6.5mm; height: 6.5mm; border-radius: 50%; background: #fff; display: grid; place-items: center; font: 800 10pt Nunito; color: #c4472f; box-shadow: 0 .5mm 2mm rgba(0,0,0,.2); }
+  .donts figcaption { margin-top: 2mm; font: 700 8.5pt Nunito; color: var(--forest); line-height: 1.35; }
+
+  .swatches { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 4mm; height: 92mm; }
+  .sw { border-radius: 5mm; padding: 5mm; display: flex; flex-direction: column; justify-content: flex-end; box-shadow: inset 0 0 0 .3mm rgba(0,0,0,.06); }
+  .sw b { font: 700 15pt Oswald; text-transform: uppercase; }
+  .sw span { font: 700 8pt Nunito; line-height: 1.55; opacity: .85; }
+  .bar { display: flex; height: 8mm; border-radius: 99mm; overflow: hidden; margin-top: 6mm; }
+  .bar div { display: grid; place-items: center; font: 800 7.5pt Nunito; }
+
+  .type { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6mm; }
+  .type .card { padding: 6mm; }
+  .type .big { font-size: 46pt; line-height: 1; color: var(--forest); margin: 2mm 0 4mm; }
+  .type .abc { font-size: 11pt; color: var(--muted); line-height: 1.5; word-break: break-all; }
+  .hier { margin-top: 6mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; align-items: end; }
+  .hier div small { display: block; font: 800 7pt Nunito; letter-spacing: .18em; text-transform: uppercase; color: var(--olive); margin-bottom: 1.5mm; }
+
+  .elems { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+  .elems .tile { height: 40mm; background: #fff; }
+  .elems figcaption { margin-top: 2mm; font: 800 8.5pt Nunito; color: var(--forest); }
+  .elems figcaption small { display: block; font-weight: 600; color: var(--muted); }
+  .btn { display: inline-flex; align-items: center; gap: 2mm; padding: 3mm 6mm; border-radius: 99mm; background: var(--gold); color: var(--forest); font: 800 10pt Nunito; }
+  .chip { padding: 1.6mm 4mm; border-radius: 99mm; background: rgba(169,195,74,.2); color: #6c8526; font: 800 8.5pt Nunito; }
+  .stk { padding: 3mm 5mm; border-radius: 3mm; background: var(--olive); color: var(--forest); font: 700 14pt Caveat; transform: rotate(-5deg); }
+
+  .photos { display: grid; grid-template-columns: 1.2fr 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3mm; height: 120mm; }
+  .photos img { width: 100%; height: 100%; object-fit: cover; border-radius: 4mm; }
+  .photos img:first-child { grid-row: span 2; }
+
+  .apps { display: grid; grid-template-columns: 1.55fr 1fr; gap: 6mm; height: 150mm; }
+  .browser { background: #fff; border-radius: 4mm; padding: 2.5mm; box-shadow: 0 3mm 8mm -4mm rgba(0,0,0,.3); }
+  .browser .dots { display: flex; gap: 1.5mm; margin: 0 0 2mm 1mm; } .browser .dots i { width: 2mm; height: 2mm; border-radius: 50%; background: #ddd; }
+  .browser img { width: 100%; border-radius: 2mm; }
+  .phone { width: 46mm; border-radius: 7mm; background: #111; padding: 2.2mm; box-shadow: 0 3mm 8mm -4mm rgba(0,0,0,.4); }
+  .phone img { width: 100%; border-radius: 5mm; }
+  .bcards { display: flex; gap: 5mm; }
+  .bc { width: 85mm; height: 55mm; border-radius: 3mm; padding: 6mm; position: relative; box-shadow: 0 3mm 8mm -4mm rgba(0,0,0,.35); }
+  .ig { width: 70mm; height: 70mm; border-radius: 3mm; overflow: hidden; position: relative; box-shadow: 0 3mm 8mm -4mm rgba(0,0,0,.35); }
+  .ig img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ig .shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(20,33,17,.92), rgba(20,33,17,.1) 65%); }
+  .ig .txt { position: absolute; left: 5mm; right: 5mm; bottom: 5mm; color: #fff; font: 700 17pt/1.05 Oswald; text-transform: uppercase; }
+  .ig .txt em { font-style: normal; color: var(--gold); }
+  .ig .lg { position: absolute; top: 3.5mm; left: 3.5mm; width: 14mm; height: 14mm; }
+  .tag { width: 40mm; height: 40mm; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f5c46a, #e9a93b 55%, #c98626); display: grid; place-items: center; box-shadow: 0 2mm 6mm -2mm rgba(0,0,0,.4), inset 0 0 0 1.2mm rgba(255,255,255,.35); position: relative; }
+  .tag::before { content: ""; position: absolute; top: -5mm; width: 6mm; height: 6mm; border-radius: 50%; border: 1.2mm solid #b9b9b9; }
+  .tag img { width: 29mm; height: 29mm; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="paw" viewBox="0 0 64 64" fill="currentColor"><ellipse cx="13" cy="28" rx="6" ry="8" transform="rotate(-22 13 28)"/><ellipse cx="51" cy="28" rx="6" ry="8" transform="rotate(22 51 28)"/><ellipse cx="24.5" cy="15" rx="6.2" ry="8.4" transform="rotate(-8 24.5 15)"/><ellipse cx="39.5" cy="15" rx="6.2" ry="8.4" transform="rotate(8 39.5 15)"/><path d="M32 31c-9 0-17 10-17 18 0 6 5 8 9 8 3 0 5-2 8-2s5 2 8 2c4 0 9-2 9-8 0-8-8-18-17-18z"/></symbol>
+  <symbol id="steth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 12v2a5 5 0 0 0 10 0v-1"/><circle cx="20" cy="11" r="2"/></symbol>
+  <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<!-- 1. COPERTĂ -->
+<section class="page dark cover">
+  <div class="grain"></div>
+  <img class="logo" src="assets/logo-textura-1200.png" alt="">
+  <div class="title">
+    <b>Pet Holiday</b>
+    <small>Hotel pentru animale</small>
+    <div class="bb">Brandbook</div>
+    <div class="yr">Ghid de identitate vizuală · 2026</div>
+  </div>
+  <div class="foot">Măgurele, Ilfov · creat de medici veterinari</div>
+</section>
+
+<!-- 2. CUPRINS -->
+<section class="page">
+  <p class="eyebrow">Cuprins</p>
+  <h2>Ce găsești aici</h2>
+  <div class="toc">
+    <div><span>03</span>Povestea și valorile</div>
+    <div><span>04</span>Personalitate și ton</div>
+    <div><span>05</span>Logo-ul</div>
+    <div><span>06</span>Anatomia logo-ului</div>
+    <div><span>07</span>Variante de logo</div>
+    <div><span>08</span>Logo + text (lockup)</div>
+    <div><span>09</span>Zona de protecție și mărimi</div>
+    <div><span>10</span>Ce să nu faci</div>
+    <div><span>11</span>Culori</div>
+    <div><span>12</span>Gradiente și textură</div>
+    <div><span>13</span>Tipografie</div>
+    <div><span>14</span>Elemente grafice</div>
+    <div><span>15</span>Fotografie</div>
+    <div><span>16</span>Aplicații</div>
+    <div><span>17</span>Papetărie</div>
+  </div>
+  <div class="num">02</div>
+</section>
+
+<!-- 3. POVESTE -->
+<section class="page">
+  <div class="grid2" style="grid-template-columns:1.1fr 1fr; align-items:start">
+    <div>
+      <p class="eyebrow">Povestea</p>
+      <h2>Mai mult decât un hotel</h2>
+      <p>Pet Holiday este un hotel pentru câini și pisici din Măgurele, Ilfov, creat de un cuplu de medici veterinari care și-a dorit mai mult decât un loc de cazare: o vacanță adevărată pentru patrupezi.</p>
+      <p>Cabane private, o curte de 2.000 m², plimbări zilnice și ochi de medic, zi de zi. Stăpânul pleacă liniștit, iar blănosul rămâne în vacanță.</p>
+      <p class="quote" style="margin-top:8mm">Pentru că și ei<br><em>merită o vacanță!</em></p>
+    </div>
+    <div><img src="assets/real-hol.jpg" alt="" style="width:100%;height:150mm;object-fit:cover;border-radius:6mm"></div>
+  </div>
+  <div class="num">03</div>
+</section>
+
+<!-- 4. PERSONALITATE -->
+<section class="page kraft">
+  <p class="eyebrow">Personalitate și ton</p>
+  <h2>Cum sună Pet Holiday</h2>
+  <div class="traits"><span>Cald</span><span>De încredere</span><span>Jucăuș</span><span>Liniștitor</span><span>Profesionist</span></div>
+  <div class="values" style="margin-top:0">
+    <div class="card"><div class="ico"><svg><use href="#steth"/></svg></div><h3>Grijă de medic</h3><p>Totul pornește din cunoaștere medicală. Spunem clar ce putem face și ce nu, fără promisiuni goale.</p></div>
+    <div class="card"><div class="ico"><svg><use href="#sun"/></svg></div><h3>Vacanță, nu cușcă</h3><p>Vorbim despre odihnă, joacă și răsfăț. Blănosul e oaspete, nu „preluat în custodie”.</p></div>
+    <div class="card"><div class="ico"><svg><use href="#heart"/></svg></div><h3>Liniște pentru stăpân</h3><p>Fiecare mesaj răspunde, de fapt, la o singură întrebare: „E bine acolo?”</p></div>
+  </div>
+  <div class="voice">
+    <div class="card ok"><h3>Așa vorbim</h3><ul><li>„Tu pleci liniștit. El rămâne în vacanță.”</li><li>„Ne spui ce tratament urmează, noi i-l dăm la timp.”</li><li>Folosim „blănosul tău”, „oaspete”, „cabană”, „vacanță”.</li></ul></div>
+    <div class="card no"><h3>Așa nu</h3><ul><li>Ton rece, administrativ: „Animalul va fi depozitat…”</li><li>Promisiuni pe care regulamentul nu le acoperă („supraveghere 24/7 non-stop”).</li><li>Prea multe emoji sau glume la subiecte medicale.</li></ul></div>
+  </div>
+  <div class="num">04</div>
+</section>
+
+<!-- 5. LOGO -->
+<section class="page">
+  <div class="grid2" style="grid-template-columns:1fr 1fr">
+    <div style="display:grid;place-items:center"><img src="assets/logo-textura-1200.png" alt="" style="width:130mm;height:130mm"></div>
+    <div>
+      <p class="eyebrow">Logo-ul</p>
+      <h2>Un oaspete fericit</h2>
+      <p>Logo-ul spune toată povestea într-o singură imagine: un câine zâmbitor, cu pălărie de vacanță, în fața soarelui, cu un palmier în spate.</p>
+      <p>Pornește de la ilustrația originală Pet Holiday (câinele cu pălărie de pai și palmierul), redusă la forme simple, ca să funcționeze de la favicon până la firmă.</p>
+      <p>Varianta principală are gradiente subtile, contur crem și textură de print. Pentru tipar dintr-o culoare, broderie sau gravură se folosește varianta plată (pag. 07).</p>
+    </div>
+  </div>
+  <div class="num">05</div>
+</section>
+
+<!-- 6. ANATOMIE -->
+<section class="page">
+  <p class="eyebrow">Anatomia logo-ului</p>
+  <h2>Trei elemente, o poveste</h2>
+  <div class="grid2" style="grid-template-columns:1fr 1.05fr; gap:10mm">
+    <div class="anat">
+      <img src="assets/logo-plat.svg" alt="">
+      <span class="lbl" data-n="1" style="left:-4mm;top:30mm">Soarele</span>
+      <span class="lbl" data-n="2" style="left:100mm;top:-4mm">Palmierul</span>
+      <span class="lbl" data-n="3" style="left:30mm;top:16mm">Pălăria</span>
+      <span class="lbl" data-n="4" style="left:92mm;top:96mm">Câinele</span>
+      <span class="lbl" data-n="5" style="left:4mm;top:100mm">Conturul crem</span>
+    </div>
+    <div class="legend">
+      <div class="row"><b>1</b><div><h3>Soarele</h3><p>Vacanța, căldura, lumina. E fundalul care unește totul.</p></div></div>
+      <div class="row"><b>2</b><div><h3>Palmierul</h3><p>Destinația. Stă în spatele câinelui, aplecat spre dreapta; trunchiul se ascunde după pălărie.</p></div></div>
+      <div class="row"><b>3</b><div><h3>Pălăria de pai</h3><p>Moștenită din logo-ul original. Transformă câinele din „animal” în „turist”.</p></div></div>
+      <div class="row"><b>4</b><div><h3>Câinele</h3><p>Văzut din față, simetric, zâmbitor: oaspetele mulțumit. Dunga albă de pe bot îl face recognoscibil.</p></div></div>
+      <div class="row"><b>5</b><div><h3>Conturul crem</h3><p>Aceeași grosime pe urechi, palmier, soare și piept. Desparte formele și dă aerul de sticker.</p></div></div>
+    </div>
+  </div>
+  <div class="num">06</div>
+</section>
+
+<!-- 7. VARIANTE -->
+<section class="page">
+  <p class="eyebrow">Variante</p>
+  <h2>Variante de logo</h2>
+  <div class="variants">
+    <figure><div class="tile" style="background:var(--cream);box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)"><img src="assets/logo-textura-1200.png" alt=""></div><figcaption>Principal, cu textură<small>Digital, social media, print color</small></figcaption></figure>
+    <figure><div class="tile" style="background:var(--forest)"><img src="assets/logo-gradient.svg" alt=""></div><figcaption>Principal pe fundal închis<small>Site, materiale verzi</small></figcaption></figure>
+    <figure><div class="tile" style="background:#fff;box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)"><img src="assets/logo-plat.svg" alt=""></div><figcaption>Plat (fără gradient și textură)<small>Print offset, autocolante, firmă</small></figcaption></figure>
+    <figure><div class="tile" style="background:var(--cream);box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)"><img src="assets/logo-mono-verde.svg" alt=""></div><figcaption>Monocrom verde<small>Ștampile, tipar într-o culoare</small></figcaption></figure>
+    <figure><div class="tile" style="background:var(--forest)"><img src="assets/logo-negativ.svg" alt=""></div><figcaption>Negativ crem<small>Broderie pe textil închis, gravură</small></figcaption></figure>
+    <figure><div class="tile" style="background:#fff;box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)"><img src="assets/logo-negru.svg" alt=""></div><figcaption>Alb-negru<small>Documente, fax, facturi</small></figcaption></figure>
+  </div>
+  <div class="num">07</div>
+</section>
+
+<!-- 8. LOCKUP -->
+<section class="page">
+  <p class="eyebrow">Logo + text</p>
+  <h2>Lockup-uri</h2>
+  <div class="lockups">
+    <div class="card" style="display:grid;place-items:center;height:62mm"><div class="lock"><img src="assets/logo-gradient.svg" style="width:40mm;height:40mm" alt=""><div class="wm"><b>Pet Holiday</b><small>Hotel pentru animale</small></div></div></div>
+    <div class="card" style="display:grid;place-items:center;height:62mm;text-align:center"><div><img src="assets/logo-gradient.svg" style="width:30mm;height:30mm;margin:0 auto 2mm" alt=""><div class="wm"><b style="font-size:26pt">Pet Holiday</b><small>Hotel pentru animale</small></div></div></div>
+    <div class="card" style="display:grid;place-items:center;height:62mm"><img src="assets/logo-gradient.svg" style="width:40mm;height:40mm" alt=""></div>
+  </div>
+  <div class="lockups" style="margin-top:5mm">
+    <div class="card" style="display:grid;place-items:center;height:42mm;background:var(--forest)"><div class="lock"><img src="assets/logo-gradient.svg" style="width:28mm;height:28mm" alt=""><div class="wm wmdark"><b style="font-size:26pt">Pet Holiday</b><small>Hotel pentru animale</small></div></div></div>
+    <div style="grid-column:span 2"><h3>Reguli</h3><p>Orizontal: varianta principală (antet site, semnătură email, firmă). Vertical: postere, coperți, profil social. Doar simbol: avatar, favicon, autocolante.</p><p>Textul „Pet Holiday” se scrie în Caveat Bold; „Hotel pentru animale” în Nunito ExtraBold, majuscule, spațiere 0,28 em. Distanța logo–text = lățimea pălăriei.</p></div>
+  </div>
+  <div class="num">08</div>
+</section>
+
+<!-- 9. ZONA DE PROTECȚIE -->
+<section class="page">
+  <div class="grid2" style="grid-template-columns:1fr 1.1fr">
+    <div class="clear">
+      <div class="box"></div>
+      <div class="inner"><img src="assets/logo-plat.svg" alt=""></div>
+      <span class="x" style="left:5mm;top:40mm">X</span><span class="x" style="right:5mm;top:40mm">X</span>
+      <span class="x" style="left:44mm;top:3mm">X</span><span class="x" style="left:44mm;bottom:3mm">X</span>
+    </div>
+    <div>
+      <p class="eyebrow">Spațiu și mărime</p>
+      <h2>Zona de protecție</h2>
+      <p>În jurul logo-ului lăsăm liber un spațiu egal cu <b>X = lățimea pălăriei câinelui</b>. Nu pune text, margini de pagină sau alte elemente în zona asta.</p>
+      <h3 style="margin-top:7mm">Mărime minimă</h3>
+      <div class="sizes">
+        <div><img src="assets/logo-plat.svg" style="width:24mm" alt="">24 mm / 96 px<br>cu textură</div>
+        <div><img src="assets/logo-plat.svg" style="width:15mm" alt="">15 mm / 48 px<br>plat</div>
+        <div><img src="assets/logo-mono-verde.svg" style="width:8mm" alt="">8 mm / 24 px<br>favicon, mono</div>
+      </div>
+      <p style="margin-top:5mm">Sub 15 mm nu folosi textura și gradientele: se transformă în „murdărie”.</p>
+    </div>
+  </div>
+  <div class="num">09</div>
+</section>
+
+<!-- 10. DON'TS -->
+<section class="page kraft">
+  <p class="eyebrow">Atenție</p>
+  <h2>Ce să nu faci</h2>
+  <div class="donts">
+    <figure><div class="tile"><img src="assets/logo-plat.svg" style="transform:scaleX(1.45)" alt=""></div><figcaption>Nu deforma (nu întinde, nu turti)</figcaption></figure>
+    <figure><div class="tile"><img src="assets/logo-plat.svg" style="transform:rotate(-18deg)" alt=""></div><figcaption>Nu roti logo-ul</figcaption></figure>
+    <figure><div class="tile"><img src="assets/logo-plat.svg" style="filter:hue-rotate(150deg) saturate(1.6)" alt=""></div><figcaption>Nu schimba culorile</figcaption></figure>
+    <figure><div class="tile"><img src="assets/logo-plat.svg" style="filter:drop-shadow(2mm 2mm 1.5mm rgba(0,0,0,.6))" alt=""></div><figcaption>Fără umbre, contururi sau efecte în plus</figcaption></figure>
+    <figure><div class="tile" style="background:url(assets/joaca.jpg) center/cover"><img src="assets/logo-plat.svg" alt=""></div><figcaption>Nu-l pune pe fotografii aglomerate</figcaption></figure>
+    <figure><div class="tile" style="background:#b8452d"><img src="assets/logo-plat.svg" alt=""></div><figcaption>Nu-l pune pe culori din afara paletei</figcaption></figure>
+    <figure><div class="tile"><img src="assets/logo-plat.svg" style="opacity:.35" alt=""></div><figcaption>Nu-l face transparent / șters</figcaption></figure>
+    <figure><div class="tile"><div style="position:relative;width:34mm;height:34mm"><img src="assets/logo-plat.svg" style="position:absolute;inset:0" alt=""><span style="position:absolute;left:-2mm;top:13mm;font:700 13pt Oswald;color:#c4472f;background:#fff;padding:0 1mm">HOTEL!</span></div></div><figcaption>Nu adăuga elemente peste logo</figcaption></figure>
+  </div>
+  <div class="num">10</div>
+</section>
+
+<!-- 11. CULORI -->
+<section class="page">
+  <p class="eyebrow">Paleta</p>
+  <h2>Culori</h2>
+  <div class="swatches">
+    <div class="sw" style="background:var(--forest);color:var(--cream)"><b>Verde pădure</b><span>HEX #1B2B18<br>RGB 27 · 43 · 24<br>CMYK 37 · 0 · 44 · 83*</span></div>
+    <div class="sw" style="background:var(--olive);color:var(--forest)"><b>Oliv</b><span>HEX #8FA83A<br>RGB 143 · 168 · 58<br>CMYK 15 · 0 · 65 · 34*</span></div>
+    <div class="sw" style="background:var(--gold);color:var(--forest)"><b>Auriu soare</b><span>HEX #E9A93B<br>RGB 233 · 169 · 59<br>CMYK 0 · 27 · 75 · 9*</span></div>
+    <div class="sw" style="background:var(--cream);color:var(--forest)"><b>Crem</b><span>HEX #F6EDDB<br>RGB 246 · 237 · 219<br>CMYK 0 · 4 · 11 · 4*</span></div>
+    <div class="sw" style="background:var(--kraft);color:var(--forest)"><b>Kraft</b><span>HEX #EAD7B0<br>RGB 234 · 215 · 176<br>CMYK 0 · 8 · 25 · 8*</span></div>
+  </div>
+  <div class="bar"><div style="flex:45;background:var(--cream);color:var(--forest);box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)">Crem 45%</div><div style="flex:30;background:var(--forest);color:var(--cream)">Verde 30%</div><div style="flex:12;background:var(--gold);color:var(--forest)">Auriu 12%</div><div style="flex:8;background:var(--olive);color:var(--forest)">Oliv 8%</div><div style="flex:5;background:var(--kraft);color:var(--forest)">5%</div></div>
+  <p style="margin-top:4mm;font-size:8.5pt">* Valorile CMYK sunt conversii aproximative din RGB. Înainte de tipar, verificați-le cu tipografia pe hârtia aleasă (sau alegeți echivalentul Pantone cel mai apropiat).</p>
+  <div class="num">11</div>
+</section>
+
+<!-- 12. GRADIENTE + TEXTURĂ -->
+<section class="page">
+  <p class="eyebrow">Profunzime</p>
+  <h2>Gradiente și textură</h2>
+  <div class="grid2" style="grid-template-columns:1.1fr 1fr; align-items:start">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4mm">
+      <div><div style="height:46mm;border-radius:5mm;background:radial-gradient(circle at 36% 30%,#f5c46a,#e9a93b 55%,#d48f2a)"></div><p style="margin-top:2mm;font-size:8.5pt"><b>Soare</b><br>radial, lumină stânga sus</p></div>
+      <div><div style="height:46mm;border-radius:5mm;background:linear-gradient(#2b4227,#1b2b18 50%,#121d10)"></div><p style="margin-top:2mm;font-size:8.5pt"><b>Verde</b><br>de sus în jos</p></div>
+      <div><div style="height:46mm;border-radius:5mm;background:linear-gradient(160deg,#a6c04f,#8fa83a 60%,#748c2b)"></div><p style="margin-top:2mm;font-size:8.5pt"><b>Oliv</b><br>ușor diagonal</p></div>
+      <div><div style="height:46mm;border-radius:5mm;background:linear-gradient(#fcf7ec,#f6eddb 60%,#e8d6b4);box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)"></div><p style="margin-top:2mm;font-size:8.5pt"><b>Crem</b><br>umbră caldă jos</p></div>
+    </div>
+    <div>
+      <p>Gradientele rămân <b>subtile</b>: între cea mai deschisă și cea mai închisă nuanță diferența e mică, ca să dea volum fără să pară „lucios”.</p>
+      <p>Textura e un <b>grain de print</b> (Photoshop → Grain 90, aplicat la jumătate de rezoluție și mărit 2×), care dă aerul de ilustrație tipărită pe hârtie.</p>
+      <h3 style="margin-top:6mm">Când folosești ce</h3>
+      <p><b>Cu textură + gradiente:</b> social media, site, postere, materiale tipărite color, peste 24 mm.</p>
+      <p><b>Plat:</b> autocolante tăiate, broderie, firmă, imprimare textilă, sub 15 mm.</p>
+    </div>
+  </div>
+  <div class="num">12</div>
+</section>
+
+<!-- 13. TIPOGRAFIE -->
+<section class="page">
+  <p class="eyebrow">Tipografie</p>
+  <h2>Fonturi</h2>
+  <div class="type">
+    <div class="card"><h3>Oswald · Titluri</h3><div class="big" style="font-family:Oswald;font-weight:700;text-transform:uppercase">Vacanță</div><div class="abc" style="font-family:Oswald">AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXYZ 0123456789</div><p style="margin-top:3mm;font-size:8.5pt">Bold 700, majuscule. Titluri, cifre mari, tarife.</p></div>
+    <div class="card"><h3>Nunito · Text</h3><div class="big" style="font-family:Nunito;font-weight:800">Grijă</div><div class="abc" style="font-family:Nunito">aăâbcdefghiîjklmnopqrsștțuvwxyz AĂÂBCDEFGHIÎ 0123456789</div><p style="margin-top:3mm;font-size:8.5pt">Regular 400 pentru text, ExtraBold 800 pentru butoane și etichete.</p></div>
+    <div class="card"><h3>Caveat · Accent</h3><div class="big" style="font-family:Caveat;font-weight:700">Pet Holiday</div><div class="abc" style="font-family:Caveat;font-size:15pt">Pentru că și ei merită o vacanță!</div><p style="margin-top:3mm;font-size:8.5pt">Bold 700. Doar numele brandului și note scurte, scrise „de mână”.</p></div>
+  </div>
+  <div class="hier">
+    <div><small>Titlu H1</small><span style="font:700 30pt/1 Oswald;text-transform:uppercase;color:var(--forest)">Liniște</span></div>
+    <div><small>Titlu H2</small><span style="font:700 20pt/1 Oswald;text-transform:uppercase;color:var(--forest)">Cabane</span></div>
+    <div><small>Accent</small><span style="font:700 20pt/1 Caveat;color:var(--olive)">Confort. Liniște.</span></div>
+    <div><small>Text</small><span style="font:400 10.5pt/1.5 Nunito;color:var(--muted)">Cabane private și o curte de 2.000 m².</span></div>
+  </div>
+  <p style="margin-top:4mm;font-size:8.5pt">Toate trei sunt gratuite (Google Fonts) și au diacritice românești complete (ă, â, î, ș, ț).</p>
+  <div class="num">13</div>
+</section>
+
+<!-- 14. ELEMENTE GRAFICE -->
+<section class="page kraft">
+  <p class="eyebrow">Elemente</p>
+  <h2>Elemente grafice</h2>
+  <div class="elems">
+    <figure><div class="tile"><div style="display:flex;gap:4mm;color:var(--gold);transform:rotate(-12deg)"><svg style="width:12mm;height:12mm"><use href="#paw"/></svg><svg style="width:12mm;height:12mm;margin-top:6mm"><use href="#paw"/></svg><svg style="width:12mm;height:12mm"><use href="#paw"/></svg></div></div><figcaption>Urme de lăbuță<small>Separator, bullet, animație</small></figcaption></figure>
+    <figure><div class="tile"><span class="btn">Rezervă o vacanță <svg style="width:4mm;height:4mm"><use href="#arrow"/></svg></span></div><figcaption>Buton principal<small>Auriu, colțuri complet rotunjite</small></figcaption></figure>
+    <figure><div class="tile"><span class="stk">Pentru că și blănoșii<br>tăi merită o vacanță!</span></div><figcaption>Sticker de mână<small>Oliv, ușor rotit, Caveat</small></figcaption></figure>
+    <figure><div class="tile" style="gap:3mm;display:flex;justify-content:center;align-items:center"><span class="chip">Talie mică</span><span class="chip" style="background:rgba(233,169,59,.2);color:#a8711c">Premium</span></div><figcaption>Etichete<small>Pastile semitransparente</small></figcaption></figure>
+    <figure><div class="tile" style="background:var(--forest)"><div style="width:30mm;height:30mm;border-radius:50%;background:var(--cream);display:grid;place-items:center;color:var(--olive)"><svg style="width:11mm;height:11mm"><use href="#steth"/></svg></div></div><figcaption>Sigiliu „Creat de medici veterinari”<small>Cerc crem, text pe cerc</small></figcaption></figure>
+    <figure><div class="tile" style="background:var(--kraft);box-shadow:inset 0 0 0 .3mm rgba(0,0,0,.08)"><span style="font:700 11pt Oswald;text-transform:uppercase;color:var(--forest)">Pet Holiday – hotelul unde vacanța devine realitate!</span></div><figcaption>Panglica kraft<small>Subsol, separator de secțiuni</small></figcaption></figure>
+  </div>
+  <div class="num">14</div>
+</section>
+
+<!-- 15. FOTOGRAFIE -->
+<section class="page">
+  <p class="eyebrow">Fotografie</p>
+  <h2>Imagini</h2>
+  <div class="grid2" style="grid-template-columns:2fr 1fr; align-items:start; gap:8mm">
+    <div class="photos">
+      <img src="assets/real-premium-1.jpg" alt=""><img src="assets/real-medium-2.jpg" alt=""><img src="assets/real-tiny-2.jpg" alt=""><img src="assets/real-medium-3.jpg" alt=""><img src="assets/real-tiny-1.jpg" alt=""><img src="assets/curte.jpg" alt=""><img src="assets/real-hol.jpg" alt="">
+    </div>
+    <div>
+      <h3>Ce fotografiem</h3>
+      <p>Spațiile reale: cabanele cu pereți verzi și lemn deschis, curtea, holul. Animalele relaxate, la nivelul ochilor lor.</p>
+      <h3 style="margin-top:5mm">Cum</h3>
+      <p>Lumină caldă, naturală sau de lampă. Culori calde, verdele bine saturat. Unghi larg în cabane, aproape la animale.</p>
+      <h3 style="margin-top:5mm">Evităm</h3>
+      <p>Lumină rece de neon, cuști vizibile, animale stresate, fotografii de stoc evidente.</p>
+    </div>
+  </div>
+  <div class="num">15</div>
+</section>
+
+<!-- 16. APLICAȚII -->
+<section class="page kraft">
+  <p class="eyebrow">Aplicații</p>
+  <h2 style="margin-bottom:4mm">Brandul în viața reală</h2>
+  <div class="apps">
+    <div style="display:flex;gap:5mm;align-items:flex-start">
+      <div class="browser" style="flex:1"><div class="dots"><i></i><i></i><i></i></div><img src="assets/site-desktop.jpg" alt=""></div>
+      <div class="phone"><img src="assets/site-mobil.jpg" alt=""></div>
+    </div>
+    <div style="display:grid;gap:5mm;align-content:start">
+      <div class="ig"><img class="bg" src="assets/real-premium-1.jpg" alt=""><div class="shade"></div><img class="lg" src="assets/logo-gradient.svg" alt=""><div class="txt">Cabana Premium<br><em>200 lei / noapte</em></div></div>
+      <div style="display:flex;gap:6mm;align-items:center"><div class="tag"><img src="assets/logo-gradient.svg" alt=""></div><p style="margin:0;font-size:8.5pt"><b>Medalion pentru zgardă</b><br>Cadou la check-in, cu numărul de telefon pe spate.</p></div>
+    </div>
+  </div>
+  <div class="num">16</div>
+</section>
+
+<!-- 17. CĂRȚI DE VIZITĂ + FINAL -->
+<section class="page dark">
+  <div class="grain"></div>
+  <p class="eyebrow">Papetărie</p>
+  <h2>Carte de vizită</h2>
+  <div class="bcards">
+    <div class="bc" style="background:var(--forest);box-shadow:0 0 0 .3mm rgba(246,237,219,.2), 0 3mm 8mm -4mm rgba(0,0,0,.5)"><div class="lock" style="height:100%;justify-content:center"><img src="assets/logo-gradient.svg" style="width:30mm;height:30mm" alt=""><div class="wm wmdark"><b style="font-size:24pt">Pet Holiday</b><small style="letter-spacing:.16em;font-size:6.5pt">Hotel pentru animale</small></div></div></div>
+    <div class="bc" style="background:var(--cream)"><div style="font:700 13pt Oswald;text-transform:uppercase;color:var(--forest)">Rezervări</div><div style="font:600 9pt/1.7 Nunito;color:var(--ink);margin-top:2mm">+40 778 393 527<br>petholidayinn@gmail.com<br>Str. Pârâului 5, Măgurele, Ilfov<br>@petholidayinn</div><div class="script" style="position:absolute;right:6mm;bottom:5mm;font-size:15pt;color:var(--olive)">Ne vom bucura să vă vedem!</div></div>
+  </div>
+  <div style="position:absolute;right:20mm;bottom:22mm;text-align:right"><img src="assets/logo-textura-1200.png" alt="" style="width:44mm;height:44mm;margin-left:auto"><div class="script" style="font-size:24pt;color:var(--gold);margin-top:2mm">Pentru că și ei merită o vacanță!</div></div>
+  <div class="foot">Pet Holiday · Brandbook 2026</div>
+  <div class="num">17</div>
+</section>
+<script>
+  // ?p=N afișează doar pagina N (pentru previzualizări)
+  const n = +new URLSearchParams(location.search).get("p");
+  if (n) document.querySelectorAll(".page").forEach((pg, i) => { pg.style.display = i === n - 1 ? "" : "none"; pg.style.margin = "0"; });
+</script>
+</body>
+</html>

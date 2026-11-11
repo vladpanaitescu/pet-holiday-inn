@@ -10,12 +10,12 @@
   <meta property="og:title" content="Pet Holiday – Hotelul unde vacanța patrupedelor devine realitate">
   <meta property="og:description" content="Cabane private, curte de 2.000 m² și grijă de medic veterinar. Pentru că și ei merită o vacanță!">
   <meta property="og:image" content="assets/img/curte.webp">
-  <link rel="icon" href="assets/img/logo.webp">
+  <link rel="icon" href="assets/img/favicon.png?v=5"><link rel="apple-touch-icon" href="assets/img/favicon.png?v=5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/curte.webp">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=17">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,6 +25,11 @@
     "image": "assets/img/curte.webp",
     "address": { "@type": "PostalAddress", "streetAddress": "Strada Pârâului 5", "postalCode": "077125", "addressLocality": "Măgurele", "addressRegion": "Ilfov", "addressCountry": "RO" },
     "telephone": "+40778393527",
+    "priceRange": "120–200 lei / noapte",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday","Sunday"], "opens": "09:00", "closes": "17:00" }
+    ],
     "email": "petholidayinn@gmail.com",
     "sameAs": ["https://www.instagram.com/petholidayinn/"]
   }
@@ -33,6 +38,7 @@
 <body>
   <!-- Preloader -->
   <div class="loader" aria-hidden="true">
+    <img class="loader__logo" src="assets/img/logo-nou.webp?v=5" alt="" width="104" height="104">
     <div class="loader__paws">
       <svg class="paw"><use href="#i-paw"/></svg>
       <svg class="paw"><use href="#i-paw"/></svg>
@@ -63,12 +69,16 @@
     <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-suitcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M8 7v13M16 7v13"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16h14M3 16v-3l2-5a2 2 0 0 1 2-1.3h10A2 2 0 0 1 19 8l2 5v3a1 1 0 0 1-1 1h-1M4 17H3"/><circle cx="7.5" cy="16.5" r="1.8"/><circle cx="16.5" cy="16.5" r="1.8"/><path d="M5 12h14"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></symbol>
   </svg>
 
   <!-- Header -->
   <header class="nav" id="nav">
     <a class="brand" href="#acasa" aria-label="Pet Holiday – acasă">
-      <img src="assets/img/logo.webp" alt="" width="44" height="44">
+      <img src="assets/img/logo-nou.webp?v=5" alt="" width="44" height="44">
       <span class="brand__txt"><b>Pet Holiday</b><small>Hotel pentru animale</small></span>
     </a>
     <nav class="nav__links" aria-label="Navigare principală">
@@ -76,6 +86,7 @@
       <a href="#cabane">Cabane</a>
       <a href="#curte">Curtea</a>
       <a href="#servicii">Servicii</a>
+      <a href="#tarife">Tarife</a>
       <a href="#faq">Întrebări</a>
     </nav>
     <a class="btn btn--gold nav__cta magnetic" href="#contact"><span>Rezervă acum</span></a>
@@ -88,6 +99,7 @@
       <a href="#cabane">Cabane</a>
       <a href="#curte">Curtea</a>
       <a href="#servicii">Servicii</a>
+      <a href="#tarife">Tarife</a>
       <a href="#faq">Întrebări</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -98,7 +110,10 @@
     <!-- HERO -->
     <section class="hero" id="acasa">
       <div class="hero__media">
-        <img src="assets/img/curte.webp" alt="Golden retriever alergând fericit pe aleea curții Pet Holiday" fetchpriority="high">
+        <picture>
+          <source media="(max-width: 860px)" srcset="assets/img/curte-mobile.webp">
+          <img src="assets/img/curte.webp" alt="Golden retriever alergând fericit pe aleea curții Pet Holiday" fetchpriority="high">
+        </picture>
       </div>
       <div class="hero__shade"></div>
       <div class="hero__inner wrap">
@@ -109,7 +124,7 @@
           <span class="line line--gold">Liniște</span>
           <span class="line line--gold">pentru tine.</span>
         </h1>
-        <p class="hero__lead">Primul hotel pentru animale creat de un cuplu de <strong>medici veterinari</strong>: cabane private, o curte de 2.000&nbsp;m² și grijă reală, zi de zi.</p>
+        <p class="hero__lead">Hotelul pentru animale creat de un cuplu de <strong>medici veterinari</strong>: cabane private, o curte de 2.000&nbsp;m² și grijă reală, zi de zi.</p>
         <div class="hero__ctas">
           <a class="btn btn--gold magnetic" href="#contact"><span>Rezervă o vacanță</span><svg class="ic"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--ghost magnetic" href="#cabane"><span>Vezi cabanele</span></a>
@@ -149,7 +164,7 @@
     <section class="about section" id="despre">
       <div class="wrap about__grid">
         <div class="about__media reveal-img">
-          <img src="assets/img/vet.webp" alt="Medic veterinar consultând un golden retriever în curte" loading="lazy">
+          <img src="assets/img/real-hol.webp" alt="Holul Pet Holiday cu ușile cabanelor, pereți verzi și lămpi calde" loading="lazy">
           <div class="sticker sticker--cream about__sticker">
             <svg class="ic"><use href="#i-steth"/></svg>
             <p><b>Creat de medici veterinari</b>Fiecare decizie e luată cu grijă, bazată pe cunoștințe medicale și iubire pentru animale.</p>
@@ -180,11 +195,17 @@
       <div class="cabins__pin">
         <div class="cabins__track">
           <article class="cabin" data-color="lime">
-            <div class="cabin__img"><img src="assets/img/tiny.webp" alt="Cabana Tiny cu un yorkshire terrier lângă patul mare" loading="lazy"></div>
+            <div class="cabin__img gal">
+              <img class="is-on" src="assets/img/real-tiny-2.webp" alt="Cabana Tiny cu pat pătrat și două perne">
+              <img src="assets/img/real-tiny-1.webp" alt="Cabana Tiny cu coș împletit și perne" loading="lazy">
+              <img src="assets/img/tiny.webp" alt="Cabana Tiny cu un yorkshire terrier lângă pat" loading="lazy">
+              <div class="gal__dots"><button type="button" aria-label="Poza 1" class="is-on"></button><button type="button" aria-label="Poza 2"></button><button type="button" aria-label="Poza 3"></button></div>
+            </div>
             <div class="cabin__body">
               <p class="cabin__num">01</p>
               <h3 class="cabin__title">Cabană <em>Tiny</em></h3>
               <p class="cabin__tagline script">Prietenii mici, grijă mare!</p>
+              <p class="cabin__price"><b>120</b> lei / noapte</p>
               <p>Dedicată exclusiv blănoșilor de talie mică — un spațiu liniștit și primitor, cu un pat generos în care se pot întinde și cuibări în voie.</p>
               <ul class="ticks">
                 <li><svg class="ic"><use href="#i-home"/></svg>Spațiu privat și liniștit</li>
@@ -192,16 +213,24 @@
                 <li><svg class="ic"><use href="#i-leaf"/></svg>Atmosferă relaxantă</li>
                 <li><svg class="ic"><use href="#i-heart"/></svg>Îngrijire atentă și multă grijă</li>
               </ul>
+              <button type="button" class="cond-btn" data-cond="caini"><svg class="ic"><use href="#i-doc"/></svg>Citește condițiile de cazare</button>
               <div class="cabin__foot"><span class="chip">Talie mică</span><a href="#contact" class="link" data-cabin="Tiny">Rezervă Tiny <svg class="ic"><use href="#i-arrow"/></svg></a></div>
             </div>
           </article>
 
           <article class="cabin" data-color="olive">
-            <div class="cabin__img"><img src="assets/img/medium.webp" alt="Cabana Medium cu fotoliu și un goldendoodle" loading="lazy"></div>
+            <div class="cabin__img gal">
+              <img class="is-on" src="assets/img/real-medium-2.webp" alt="Cabana Medium cu fotoliu cu flori și pernă de dormit">
+              <img src="assets/img/real-medium-3.webp" alt="Cabana Medium cu fotoliu, măsuță și pat de podea" loading="lazy">
+              <img src="assets/img/real-medium-1.webp" alt="Cabana Medium cu fotoliu în carouri" loading="lazy">
+              <img src="assets/img/medium.webp" alt="Cabana Medium cu un goldendoodle" loading="lazy">
+              <div class="gal__dots"><button type="button" aria-label="Poza 1" class="is-on"></button><button type="button" aria-label="Poza 2"></button><button type="button" aria-label="Poza 3"></button><button type="button" aria-label="Poza 4"></button></div>
+            </div>
             <div class="cabin__body">
               <p class="cabin__num">02</p>
               <h3 class="cabin__title">Cabană <em>Medium</em></h3>
               <p class="cabin__tagline script">Confort. Liniște. Răsfăț.</p>
+              <p class="cabin__price"><b>150</b> lei / noapte</p>
               <p>Alegerea potrivită pentru blănoșii de talie mică, medie și mare: un spațiu privat, cu loc pentru odihnă și un fotoliu confortabil.</p>
               <ul class="ticks">
                 <li><svg class="ic"><use href="#i-sofa"/></svg>Fotoliu confortabil</li>
@@ -209,19 +238,23 @@
                 <li><svg class="ic"><use href="#i-leaf"/></svg>Ambianță liniștitoare</li>
                 <li><svg class="ic"><use href="#i-heart"/></svg>Atenție la detalii</li>
               </ul>
+              <button type="button" class="cond-btn" data-cond="caini"><svg class="ic"><use href="#i-doc"/></svg>Citește condițiile de cazare</button>
               <div class="cabin__foot"><span class="chip">Talie mică – mare</span><a href="#contact" class="link" data-cabin="Medium">Rezervă Medium <svg class="ic"><use href="#i-arrow"/></svg></a></div>
             </div>
           </article>
 
           <article class="cabin cabin--premium" data-color="gold">
-            <div class="cabin__img">
-              <img src="assets/img/premium.webp" alt="Cabana Premium cu pat cu baldachin și un goldendoodle" loading="lazy">
+            <div class="cabin__img gal">
+              <img class="is-on" src="assets/img/real-premium-1.webp" alt="Cabana Premium cu pat cu baldachin și fereastră">
+              <img src="assets/img/premium.webp" alt="Cabana Premium cu un goldendoodle" loading="lazy">
               <span class="cabin__badge">Premium<br>quality</span>
+              <div class="gal__dots"><button type="button" aria-label="Poza 1" class="is-on"></button><button type="button" aria-label="Poza 2"></button></div>
             </div>
             <div class="cabin__body">
               <p class="cabin__num">03</p>
               <h3 class="cabin__title">Cabană <em>Premium</em></h3>
               <p class="cabin__tagline script">Lux. Confort. Răsfăț.</p>
+              <p class="cabin__price"><b>200</b> lei / noapte</p>
               <p>O experiență premium într-un spațiu generos și intim, cu pat cu baldachin, supraveghere atentă și rutină personalizată.</p>
               <ul class="ticks">
                 <li><svg class="ic"><use href="#i-home"/></svg>Spațiu generos și privat</li>
@@ -229,6 +262,7 @@
                 <li><svg class="ic"><use href="#i-steth"/></svg>Supraveghere atentă</li>
                 <li><svg class="ic"><use href="#i-sun"/></svg>Rutină personalizată</li>
               </ul>
+              <button type="button" class="cond-btn" data-cond="caini"><svg class="ic"><use href="#i-doc"/></svg>Citește condițiile de cazare</button>
               <div class="cabin__foot"><span class="chip chip--gold">Cea mai răsfățată</span><a href="#contact" class="link" data-cabin="Premium">Rezervă Premium <svg class="ic"><use href="#i-arrow"/></svg></a></div>
             </div>
           </article>
@@ -270,8 +304,17 @@
         <div class="cats__copy">
           <p class="eyebrow eyebrow--light">Și pentru pisici</p>
           <h2 class="h2 h2--light" data-split>Mustățile sunt bine-venite</h2>
-          <p>Pet Holiday este hotel pentru <strong>animale</strong>, nu doar pentru câini. Pisicile au parte de un colț liniștit, cu loc de cățărat, pernă moale și o rutină care le respectă ritmul — departe de agitația cățeilor.</p>
+          <p>Pet Holiday este hotel pentru <strong>animale</strong>, nu doar pentru câini. Pisicile au spații dedicate, liniștite, cu pernă moale și o rutină care le respectă ritmul — departe de agitația cățeilor.</p>
+          <p class="cats__price"><b>120</b> lei / noapte</p>
+          <ul class="cats__req">
+            <li><svg class="ic"><use href="#i-check"/></svg>Vaccin antirabic și polivalent valabile</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Deparazitare internă și externă la zi</li>
+            <li><svg class="ic"><use href="#i-check"/></svg>Aduci nisipul cu care e obișnuită</li>
+          </ul>
+          <div class="cats__ctas">
           <a class="btn btn--gold magnetic" href="#contact" data-pet="Pisică"><span>Rezervă pentru pisică</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+          <button type="button" class="cond-btn cond-btn--light" data-cond="pisici"><svg class="ic"><use href="#i-doc"/></svg>Citește condițiile</button>
+          </div>
         </div>
         <div class="cats__media reveal-img">
           <img src="assets/img/pisica.webp" alt="Pisică British Shorthair relaxată pe o pernă într-o cabană" loading="lazy">
@@ -288,13 +331,55 @@
           <h2 class="h2" data-split>Grijă de medic, răsfăț de hotel</h2>
         </div>
         <div class="services__grid">
-          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-steth"/></svg></span><h3>Ochi de medic veterinar</h3><p>Fiecare oaspete e urmărit de oameni care știu să recunoască din timp orice semn că ceva nu e în regulă.</p></article>
-          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-paw"/></svg></span><h3>Plimbări zilnice</h3><p>Ieșiri zilnice în curtea de 2.000 m², adaptate vârstei, taliei și energiei fiecăruia.</p></article>
-          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-bowl"/></svg></span><h3>Rutina de acasă</h3><p>Păstrăm orele de masă, hrana și obiceiurile cu care e obișnuit, ca să nu simtă schimbarea.</p></article>
-          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-pill"/></svg></span><h3>Tratamente administrate</h3><p>Dacă urmează un tratament, îl administrăm corect și la timp — exact cum l-ar da un medic.</p></article>
-          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-ball"/></svg></span><h3>Joacă și socializare</h3><p>Timp de joacă supravegheat, cu prieteni potriviți ca temperament și talie.</p></article>
-          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-camera"/></svg></span><h3>Vești din vacanță</h3><p>Primești poze și noutăți, ca să știi mereu că blănosul tău se distrează.</p></article>
+          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-steth"/></svg></span><h3>Ochi de medic veterinar</h3><p>Fiecare oaspete e urmărit de oameni care știu să recunoască din timp semnele că ceva nu e în regulă — și, la nevoie, îl duc rapid la un cabinet veterinar.</p></article>
+          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-paw"/></svg></span><h3>Plimbări zilnice</h3><p>Ieșiri zilnice în curtea de 2.000 m², organizate în funcție de talie, energie și de cât de bine se înțelege cu ceilalți.</p></article>
+          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-bowl"/></svg></span><h3>Hrana de acasă</h3><p>Aduci mâncarea cu care e obișnuit, ca să nu schimbăm brusc dieta. Dacă nu poți, o comandăm noi, cu minimum 7 zile înainte.</p></article>
+          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-pill"/></svg></span><h3>Tratamente</h3><p>Administrăm tratamente orale și topice, între 08:00 și 22:00. La pisici, doar dacă le acceptă împreună cu hrana.</p><span class="svc__tag">30 lei / zi</span></article>
+          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-car"/></svg></span><h3>Pet Taxi</h3><p>Îl luăm și îl aducem acasă, oriunde în București și Ilfov. Programare cu cel puțin 2 zile înainte.</p><span class="svc__tag">5 lei / km · minim 50 lei</span></article>
+          <article class="svc"><span class="svc__ic"><svg class="ic"><use href="#i-video"/></svg></span><h3>Supraveghere video</h3><p>Pe timpul nopții, cabanele sunt urmărite prin camere video, ca să putem observa orice situație care cere atenție.</p></article>
         </div>
+      </div>
+    </section>
+
+    <!-- TARIFE + PROGRAM -->
+    <section class="rates section" id="tarife">
+      <div class="wrap">
+        <div class="center">
+          <p class="eyebrow">Tarife și program</p>
+          <h2 class="h2" data-split>Simplu și transparent</h2>
+        </div>
+        <div class="rates__grid">
+          <div class="rates__card">
+            <h3 class="rates__title">Cazare / noapte</h3>
+            <ul class="price-list">
+              <li><span>Cabana Tiny <small>câini de talie mică</small></span><b>120 lei</b></li>
+              <li><span>Cabana Medium <small>talie mică – mare</small></span><b>150 lei</b></li>
+              <li><span>Cabana Premium <small>cea mai răsfățată</small></span><b>200 lei</b></li>
+              <li><span>Cazare pisici <small>spații dedicate</small></span><b>120 lei</b></li>
+            </ul>
+            <h3 class="rates__title rates__title--sm">Extra</h3>
+            <ul class="price-list price-list--sm">
+              <li><span>Administrare tratament</span><b>30 lei / zi</b></li>
+              <li><span>Pet Taxi (București și Ilfov)</span><b>5 lei / km</b></li>
+              <li><span>Pet Taxi în aceeași zi</span><b>+100 lei</b></li>
+            </ul>
+          </div>
+          <div class="rates__card rates__card--dark">
+            <h3 class="rates__title"><svg class="ic"><use href="#i-clock"/></svg>Program</h3>
+            <div class="hours">
+              <div class="hours__row"><b>Recepție</b><span>Luni – Vineri<em>08:00 – 19:00</em></span><span>Sâmbătă – Duminică<em>09:00 – 17:00</em></span></div>
+              <div class="hours__row"><b>Check-in</b><span>Luni – Vineri<em>15:00 – 19:00</em></span><span>Sâmbătă – Duminică<em>15:00 – 17:00</em></span></div>
+              <div class="hours__row"><b>Check-out</b><span>Luni – Vineri<em>08:00 – 14:00</em></span><span>Sâmbătă – Duminică<em>09:00 – 14:00</em></span></div>
+            </div>
+            <p class="rates__note">Sosire sau plecare în afara acestor intervale, dar în programul recepției: +50% din prețul unei nopți.</p>
+          </div>
+        </div>
+        <div class="rates__strip">
+          <div><svg class="ic"><use href="#i-doc"/></svg><p><b>Avans</b>Rezervarea se confirmă cu avansul primelor două nopți (nerambursabil).</p></div>
+          <div><svg class="ic"><use href="#i-steth"/></svg><p><b>Carnet de sănătate</b>În original, obligatoriu la check-in; rămâne la noi pe durata cazării.</p></div>
+          <div><svg class="ic"><use href="#i-paw"/></svg><p><b>Zgardă, nu ham</b>Câinii vin la check-in cu zgardă. Bolurile le avem noi.</p></div>
+        </div>
+        <p class="center rates__more"><a class="link" href="regulament.html">Citește regulamentul complet <svg class="ic"><use href="#i-arrow"/></svg></a></p>
       </div>
     </section>
 
@@ -308,10 +393,10 @@
         <div class="steps__wrap">
           <svg class="steps__line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C150,0 250,120 400,60 S650,0 750,60 S900,120 1000,60"/></svg>
           <ol class="steps__list">
-            <li class="step"><span class="step__n">1</span><h3>Ne scrii</h3><p>Completezi formularul sau ne suni. Îți confirmăm disponibilitatea pentru perioada dorită.</p></li>
-            <li class="step"><span class="step__n">2</span><h3>Check-in</h3><p>Ne cunoaștem, discutăm rutina, hrana și nevoile medicale ale blănosului tău.</p></li>
-            <li class="step"><span class="step__n">3</span><h3>Vacanța</h3><p>Cabană privată, plimbări, joacă și multă grijă. Tu primești vești din vacanță.</p></li>
-            <li class="step"><span class="step__n">4</span><h3>Revederea</h3><p>Îl găsești odihnit, fericit și cu energia consumată. Ne vom bucura să vă revedem!</p></li>
+            <li class="step"><span class="step__n">1</span><h3>Ne scrii</h3><p>Completezi formularul sau ne suni. Ne spui și despre eventuale afecțiuni sau tratamente, iar noi îți confirmăm disponibilitatea.</p></li>
+            <li class="step"><span class="step__n">2</span><h3>Confirmi</h3><p>Achiți avansul pentru primele două nopți și locul e rezervat.</p></li>
+            <li class="step"><span class="step__n">3</span><h3>Check-in</h3><p>Vii cu carnetul de sănătate în original, hrana obișnuită și zgardă. Discutăm rutina și obiceiurile lui.</p></li>
+            <li class="step"><span class="step__n">4</span><h3>Vacanța</h3><p>Cabană privată, plimbări și multă grijă. La check-out îl găsești odihnit și fericit. Ne vom bucura să vă revedem!</p></li>
           </ol>
         </div>
       </div>
@@ -335,12 +420,19 @@
           <p class="faq__aside">Nu găsești răspunsul? <a href="#contact" class="link">Scrie-ne <svg class="ic"><use href="#i-arrow"/></svg></a></p>
         </div>
         <div class="faq__list">
-          <details class="qa"><summary>Ce animale primiți?<i></i></summary><div class="qa__a"><p>Primim câini de toate taliile (în funcție de cabană) și pisici. Pentru alte animale de companie, scrie-ne și discutăm.</p></div></details>
-          <details class="qa"><summary>Ce acte și vaccinuri sunt necesare?<i></i></summary><div class="qa__a"><p>Carnetul de sănătate cu vaccinurile la zi și deparazitarea internă și externă recentă. Siguranța tuturor oaspeților e pe primul loc.</p></div></details>
-          <details class="qa"><summary>Ce trebuie să aduc la check-in?<i></i></summary><div class="qa__a"><p>Hrana obișnuită (ca să nu schimbăm dieta), eventualele tratamente și, dacă vrei, jucăria sau păturica preferată — miroase a acasă.</p></div></details>
-          <details class="qa"><summary>Puteți administra medicamente?<i></i></summary><div class="qa__a"><p>Da. Fiind medici veterinari, administrăm tratamentele recomandate exact după schemă și urmărim atent starea animalului.</p></div></details>
-          <details class="qa"><summary>Cum aflu ce face blănosul meu?<i></i></summary><div class="qa__a"><p>Îți trimitem poze și noutăți pe parcursul șederii, ca să fii liniștit oriunde te-ar duce vacanța ta.</p></div></details>
-          <details class="qa"><summary>Unde vă aflați?<i></i></summary><div class="qa__a"><p>Suntem pe Strada Pârâului 5, în Măgurele, județul Ilfov, aproape de București. Găsești harta și butonul de indicații mai jos, la contact.</p></div></details>
+          <details class="qa"><summary>Ce animale primiți?<i></i></summary><div class="qa__a"><p>Câini și pisici. Câinii trebuie să fie obișnuiți cu traiul în interior, sociabili cu oamenii și să poată fi gestionați în siguranță în preajma altor câini.</p></div></details>
+          <details class="qa"><summary>Ce vaccinuri și acte sunt necesare?<i></i></summary><div class="qa__a">
+            <p><b>Pentru toți:</b> carnetul de sănătate în original (rămâne la noi pe durata cazării) și deparazitarea internă și externă în termen.</p>
+            <p><b>Câini:</b> schema obligatorie de vaccinare valabilă și vaccinul împotriva tusei de canisă, făcut cu minimum 14 zile înainte, dacă nu există unul valabil.</p>
+            <p><b>Pisici:</b> vaccin antirabic și polivalent valabile sau făcute cu minimum 14 zile înainte de cazare.</p>
+          </div></details>
+          <details class="qa"><summary>Ce trebuie să aduc la check-in?<i></i></summary><div class="qa__a"><p>Carnetul de sănătate, hrana obișnuită, nisipul (pentru pisici), zgarda (nu ham) și, dacă vrei, jucăria sau păturica preferată. Bolurile le avem noi — doar pe cele de tip slow feeding le aduci de acasă.</p></div></details>
+          <details class="qa"><summary>Puteți administra medicamente?<i></i></summary><div class="qa__a"><p>Da, tratamente orale și topice, între 08:00 și 22:00, la 30 lei/zi. Nu administrăm tratamente injectabile. Pisicilor le putem da tratament doar dacă îl acceptă împreună cu hrana.</p></div></details>
+          <details class="qa"><summary>Cum se face rezervarea și ce se întâmplă la anulare?<i></i></summary><div class="qa__a"><p>Rezervarea se confirmă cu un avans egal cu primele două nopți (sau o noapte, dacă stă doar una). Avansul nu se rambursează și nu se reportează; anularea, reprogramarea sau neprezentarea se taxează cu două nopți.</p></div></details>
+          <details class="qa"><summary>Cine stă cu el pe timpul nopții?<i></i></summary><div class="qa__a"><p>Noaptea, cabanele sunt supravegheate prin camere video, nu prin prezență fizică permanentă — ca la un pet sitter care te găzduiește acasă. Dacă observăm o problemă de sănătate, te sunăm imediat și, la nevoie, îl ducem la cabinetul veterinar.</p></div></details>
+          <details class="qa"><summary>Există situații în care nu putem primi animalul?<i></i></summary><div class="qa__a"><p>Da: animale agresive față de oameni, cu comportament distructiv cunoscut, cu afecțiuni cronice grave sau instabile care cer supraveghere medicală permanentă, ori femele nesterilizate în perioada ciclului. Te rugăm să ne spui din timp orice afecțiune sau tratament.</p></div></details>
+          <details class="qa"><summary>Unde vă aflați?<i></i></summary><div class="qa__a"><p>Pe Strada Pârâului 5, în Măgurele, județul Ilfov, aproape de București. Găsești harta și butonul de indicații mai jos, la contact. Dacă nu poți ajunge, folosește Pet Taxi.</p></div></details>
+          <p class="faq__rules"><a class="link" href="regulament.html">Regulamentul complet de cazare <svg class="ic"><use href="#i-arrow"/></svg></a></p>
         </div>
       </div>
     </section>
@@ -367,7 +459,7 @@
         <div class="contact__info">
           <p class="eyebrow eyebrow--light">Rezervări</p>
           <h2 class="h2 h2--light" data-split>Hai să-i planificăm vacanța</h2>
-          <p>Spune-ne cine vine în vacanță și pentru ce perioadă. Revenim cu confirmarea cât de repede putem.</p>
+          <p>Spune-ne cine vine în vacanță și pentru ce perioadă. Revenim cu confirmarea cât de repede putem — în programul recepției: L–V 08:00–19:00, S–D 09:00–17:00.</p>
           <ul class="contact__list">
             <li><svg class="ic"><use href="#i-pin"/></svg><div><b>Adresă</b><a href="https://share.google/VP8O2S2Atb2BO5Ytb" target="_blank" rel="noopener">Str. Pârâului 5, Măgurele, Ilfov</a></div></li>
             <li><svg class="ic"><use href="#i-phone"/></svg><div><b>Telefon</b><a href="tel:+40778393527" data-cfg="phone">+40 778 393 527</a></div></li>
@@ -394,10 +486,11 @@
               <label class="field"><span>Numele blănosului</span><input name="nume_animal" placeholder="Bruno"></label>
               <label class="field"><span>Cabana dorită</span>
                 <select name="cabana">
-                  <option value="Nu știu încă">Nu știu încă</option>
-                  <option value="Tiny">Cabană Tiny</option>
-                  <option value="Medium">Cabană Medium</option>
-                  <option value="Premium">Cabană Premium</option>
+                  <option value="Nu știu încă" data-price="0">Nu știu încă</option>
+                  <option value="Tiny" data-price="120">Cabană Tiny · 120 lei</option>
+                  <option value="Medium" data-price="150">Cabană Medium · 150 lei</option>
+                  <option value="Premium" data-price="200">Cabană Premium · 200 lei</option>
+                  <option value="Pisici" data-price="120" hidden>Cazare pisici · 120 lei</option>
                 </select>
               </label>
             </div>
@@ -405,8 +498,30 @@
               <label class="field"><span>Check-in</span><input name="checkin" type="date" required></label>
               <label class="field"><span>Check-out</span><input name="checkout" type="date" required></label>
             </div>
-            <label class="field"><span>Mesaj (opțional)</span><textarea name="mesaj" rows="3" placeholder="Rasă, vârstă, obiceiuri, tratamente…"></textarea></label>
+            <p class="form__est" aria-live="polite"></p>
+            <label class="consent consent--opt"><input type="checkbox" name="pet_taxi" value="Da"><span>Vreau și <b>Pet Taxi</b> (5 lei/km, minim 50 lei, în București și Ilfov).</span></label>
+            <fieldset class="seg seg--yn">
+              <legend>Are afecțiuni medicale diagnosticate sau urmează un tratament?</legend>
+              <label><input type="radio" name="afectiuni" value="Nu" required><span>Nu</span></label>
+              <label><input type="radio" name="afectiuni" value="Da"><span>Da</span></label>
+            </fieldset>
+            <div class="med" hidden>
+              <label class="field"><span>Ce afecțiune are și ce tratament urmează?</span><textarea name="afectiuni_detalii" rows="3" placeholder="Diagnostic, medicament, doză, cum se administrează…"></textarea></label>
+              <div class="med__info">
+                <p><b>Ce putem administra:</b> doar tratamente orale și topice (pe piele), între 08:00 și 22:00, la 30 lei/zi. Nu administrăm tratamente injectabile. Pisicilor, doar dacă acceptă tratamentul în hrană.</p>
+                <p><b>Ce nu putem primi:</b> animale cu afecțiuni cronice grave, instabile sau insuficient controlate (de ex. insuficiență cardiacă, epilepsie necontrolată, insuficiență renală sau hepatică avansată) care cer supraveghere medicală permanentă.</p>
+              </div>
+            </div>
+            <fieldset class="seg seg--yn" data-only="caini">
+              <legend>Se înțelege cu alți câini?</legend>
+              <label><input type="radio" name="sociabil" value="Da"><span>Da</span></label>
+              <label><input type="radio" name="sociabil" value="Nu"><span>Nu</span></label>
+              <label><input type="radio" name="sociabil" value="Nu știu"><span>Nu știu</span></label>
+            </fieldset>
+            <label class="field"><span>Telefon pentru urgențe (altă persoană, opțional)</span><input name="telefon_urgenta" type="tel" placeholder="Numele și telefonul persoanei desemnate"></label>
+            <label class="field"><span>Mesaj (opțional)</span><textarea name="mesaj" rows="3" placeholder="Rasă, vârstă, obiceiuri, ce îi place…"></textarea></label>
             <label class="hp" aria-hidden="true">Nu completa<input name="website" tabindex="-1" autocomplete="off"></label>
+            <label class="consent consent--rules"><input type="checkbox" name="regulament" value="Da" required><span>Am citit și accept <a href="regulament.html" target="_blank">Regulamentul de cazare</a>: condițiile obligatorii (vaccinuri, deparazitări, carnet de sănătate), afecțiunile pe care nu le puteți primi, tratamentele pe care le puteți administra, supravegherea video pe timpul nopții și politica de avans și anulare.</span></label>
             <label class="consent"><input type="checkbox" name="gdpr" required><span>Sunt de acord ca datele mele să fie folosite pentru a fi contactat(ă) în legătură cu rezervarea.</span></label>
             <button class="btn btn--gold btn--block magnetic" type="submit"><span>Trimite cererea</span><svg class="ic"><use href="#i-arrow"/></svg></button>
             <p class="form__err" role="alert"></p>
@@ -424,7 +539,7 @@
         <div class="map__frame">
           <iframe title="Hartă Pet Holiday Măgurele" src="https://www.google.com/maps?q=Strada%20P%C3%A2r%C3%A2ului%205%2C%20077125%20M%C4%83gurele%2C%20Ilfov&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
           <div class="map__card">
-            <img src="assets/img/logo.webp" alt="" width="56" height="56">
+            <img src="assets/img/logo-nou.webp?v=5" alt="" width="56" height="56">
             <div><b>Pet Holiday</b><span>Str. Pârâului 5, Măgurele</span></div>
             <a class="btn btn--gold btn--sm" href="https://www.google.com/maps/dir/?api=1&destination=Strada%20P%C3%A2r%C3%A2ului%205%2C%20077125%20M%C4%83gurele%2C%20Ilfov" target="_blank" rel="noopener"><span>Indicații</span><svg class="ic"><use href="#i-arrow"/></svg></a>
           </div>
@@ -437,12 +552,12 @@
     <div class="foot__ribbon"><svg class="paw"><use href="#i-paw"/></svg> Pet Holiday – hotelul unde vacanța patrupezilor devine realitate! <svg class="paw"><use href="#i-paw"/></svg></div>
     <div class="wrap foot__grid">
       <div class="foot__brand">
-        <a class="brand" href="#acasa"><img src="assets/img/logo.webp" alt="" width="52" height="52"><span class="brand__txt"><b>Pet Holiday</b><small>Hotel pentru animale</small></span></a>
+        <a class="brand" href="#acasa"><img src="assets/img/logo-nou.webp?v=5" alt="" width="52" height="52"><span class="brand__txt"><b>Pet Holiday</b><small>Hotel pentru animale</small></span></a>
         <p>Hotel pentru câini și pisici, creat de medici veterinari. Pentru că și ei merită o vacanță!</p>
       </div>
       <div class="foot__col">
         <h4>Navigare</h4>
-        <a href="#despre">Despre noi</a><a href="#cabane">Cabane</a><a href="#curte">Curtea</a><a href="#faq">Întrebări</a>
+        <a href="#despre">Despre noi</a><a href="#cabane">Cabane</a><a href="#tarife">Tarife și program</a><a href="#faq">Întrebări</a><a href="regulament.html">Regulament</a>
       </div>
       <div class="foot__col">
         <h4>Contact</h4>
@@ -454,12 +569,66 @@
     <div class="wrap foot__bottom"><span>© <span id="year">2026</span> Pet Holiday. Toate drepturile rezervate.</span><a href="#acasa" class="totop">Sus <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </footer>
 
+  <!-- Condiții de cazare (popup) -->
+  <div class="cond" id="cond" role="dialog" aria-modal="true" aria-labelledby="cond-title" hidden>
+    <div class="cond__backdrop" data-close></div>
+    <div class="cond__panel">
+      <button type="button" class="cond__x" data-close aria-label="Închide"><span></span><span></span></button>
+      <p class="eyebrow">Înainte de rezervare</p>
+      <h2 class="cond__title" id="cond-title">Condiții de cazare</h2>
+
+      <div class="cond__body" data-for="caini">
+        <h3>Câinele tău trebuie să fie</h3>
+        <ul>
+          <li>obișnuit cu traiul în interior;</li>
+          <li>sociabil cu oamenii și gestionabil în siguranță lângă alți câini;</li>
+          <li>vaccinat conform schemei obligatorii, cu vaccinurile în termen;</li>
+          <li>deparazitat intern și extern, în termen;</li>
+          <li>vaccinat împotriva tusei de canisă cu minimum 14 zile înainte, dacă nu are deja un vaccin valabil.</li>
+        </ul>
+        <p class="cond__warn">Femelele nesterilizate nu pot fi cazate în perioada ciclului sau în apropierea acesteia.</p>
+      </div>
+
+      <div class="cond__body" data-for="pisici">
+        <h3>Pisica ta trebuie să aibă</h3>
+        <ul>
+          <li>vaccinul antirabic și cel polivalent valabile sau făcute cu minimum 14 zile înainte de cazare;</li>
+          <li>deparazitările interne și externe la zi.</li>
+        </ul>
+        <p class="cond__warn">Tratamentele se pot administra pisicilor doar dacă le acceptă împreună cu hrana.</p>
+      </div>
+
+      <h3>La check-in aduci</h3>
+      <div class="cond__chips">
+        <span><svg class="ic"><use href="#i-doc"/></svg>Carnetul de sănătate în original</span>
+        <span><svg class="ic"><use href="#i-bowl"/></svg>Hrana obișnuită</span>
+        <span data-for="caini"><svg class="ic"><use href="#i-paw"/></svg>Zgardă (nu ham)</span>
+        <span data-for="pisici"><svg class="ic"><use href="#i-paw"/></svg>Nisipul obișnuit</span>
+      </div>
+
+      <h3>Bine de știut</h3>
+      <ul class="cond__facts">
+        <li><b>Avans</b>Primele 2 nopți, nerambursabil</li>
+        <li><b>Check-in</b>L–V 15–19 · S–D 15–17</li>
+        <li><b>Check-out</b>L–V 08–14 · S–D 09–14</li>
+      </ul>
+      <h3>Tratamente și afecțiuni</h3>
+      <p class="cond__warn" style="margin-top:0">Administrăm doar tratamente <b>orale și topice</b>, între 08:00 și 22:00 (30 lei/zi) — <b>nu și injectabile</b>. Nu putem primi animale cu afecțiuni cronice grave, instabile sau care cer supraveghere medicală permanentă. Te rugăm să ne spui înainte de rezervare orice afecțiune diagnosticată și orice tratament.</p>
+      <p class="cond__note">Nu putem primi nici animale agresive față de oameni sau cu comportament distructiv cunoscut. Noaptea, supravegherea se face prin camere video, fără prezență fizică permanentă.</p>
+
+      <div class="cond__ctas">
+        <a class="btn btn--gold" href="#contact" data-close><span>Rezervă acum</span><svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a class="link" href="regulament.html">Regulamentul complet <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+
   <a class="fab" href="#contact" aria-label="Rezervă acum"><svg class="ic"><use href="#i-suitcase"/></svg><span>Rezervă</span></a>
   <div class="cursor" aria-hidden="true"><svg class="paw"><use href="#i-paw"/></svg></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="main.js?v=4"></script>
+  <script src="main.js?v=17"></script>
 </body>
 </html>
