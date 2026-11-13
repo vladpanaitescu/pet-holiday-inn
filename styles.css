@@ -691,3 +691,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .foot .brand--full img { width: auto; height: 170px; border-radius: 0; filter: drop-shadow(0 12px 24px rgba(0,0,0,.35)); }
 .loader__logo { width: auto; height: 200px; animation: logoIn .7s var(--ease) both; }
 @media (max-width: 860px) { .foot .brand--full img { height: 150px; } }
+/* logo-ul întreg (nu decupat) în bară, hartă și regulament */
+.brand img.logo-full, .map__card img.logo-full { width: auto; border-radius: 0; object-fit: contain; }
+.nav .brand img.logo-full { height: 64px; width: auto; margin: -8px 0; }
+.map__card img.logo-full { height: 66px; }
+.rules-bar .brand img.logo-full { height: 72px; }
+@media (max-width: 860px) { .nav .brand img.logo-full { height: 56px; width: auto; margin: -6px 0; } }
