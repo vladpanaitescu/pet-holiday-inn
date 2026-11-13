@@ -697,3 +697,11 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .map__card img.logo-full { height: 66px; }
 .rules-bar .brand img.logo-full { height: 72px; }
 @media (max-width: 860px) { .nav .brand img.logo-full { height: 56px; width: auto; margin: -6px 0; } }
+
+/* linia punctată se oprește la pasul 4 (desktop și mobil) */
+.steps__line { right: auto; width: calc(75% + 52px); }
+@media (max-width: 860px) {
+  .steps__list { border-left: 0; }
+  .step:not(:last-child) { border-left: 2px dashed rgba(233, 169, 59, .6); }
+  .step:last-child { padding-bottom: 0; }
+}
