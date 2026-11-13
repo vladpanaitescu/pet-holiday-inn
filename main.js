@@ -1,8 +1,8 @@
 /* Pet Holiday — interacțiuni și animații */
 (() => {
   // Datele de contact reale se completează aici (apar automat în tot site-ul)
-  const WHATSAPP = "40766794230";   // numărul pe care ajung cererile de rezervare
-  const CONFIG = { phone: "+40 778 393 527", email: "petholidayinn@gmail.com" };
+  const WHATSAPP = "40778393527";   // numărul pe care ajung cererile de rezervare
+  const CONFIG = { phone: "0778 393 527", email: "petholidayinn@gmail.com" };
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
