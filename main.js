@@ -1,6 +1,7 @@
 /* Pet Holiday — interacțiuni și animații */
 (() => {
   // Datele de contact reale se completează aici (apar automat în tot site-ul)
+  const WHATSAPP = "40766794230";   // numărul pe care ajung cererile de rezervare
   const CONFIG = { phone: "+40 778 393 527", email: "petholidayinn@gmail.com" };
 
   const $ = (s, c = document) => c.querySelector(s);
@@ -371,28 +372,41 @@
     }
     if (form.website.value) return; // bot
 
-    const btn = $("button[type=submit]", form);
-    btn.classList.add("is-loading");
     const name = form.nume_animal.value.trim();
     $(".ok-name", form).textContent = name || (form.animal.value === "Pisică" ? "pisica ta" : "blănosul tău");
 
-    try {
-      const res = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-      const data = await res.json().catch(() => null);
-      if (!res.ok || !data || !data.ok) throw new Error((data && data.error) || "send");
-      form.classList.add("is-sent");
-      form.reset();
-      syncPet();
-      syncMed();
-    } catch (x) {
-      // Previzualizare locală fără PHP: arătăm confirmarea ca demo
-      if (/^(localhost|127\.0\.0\.1|)$/.test(location.hostname) || location.protocol === "file:") {
-        form.classList.add("is-sent");
-      } else {
-        err.textContent = "Mesajul nu a putut fi trimis. Te rugăm să ne suni sau să încerci din nou.";
-      }
-    } finally {
-      btn.classList.remove("is-loading");
-    }
+    // Mesajul de WhatsApp, construit din răspunsuri
+    const v = k => (form[k] && form[k].value || "").trim();
+    const d = iso => iso ? iso.split("-").reverse().join(".") : "";
+    const nights = Math.round((new Date(v("checkout")) - new Date(v("checkin"))) / 864e5);
+    const price = +form.cabana.selectedOptions[0].dataset.price;
+    const cazare = v("cabana") === "Pisici" ? "Cazare pisici" : (v("cabana") === "Nu știu încă" ? "Nu știu încă" : "Cabana " + v("cabana"));
+    const lines = [
+      "Bună! Aș vrea o rezervare la Pet Holiday 🐾",
+      "",
+      `*Nume:* ${v("nume")}`,
+      `*Telefon:* ${v("telefon")}`,
+      `*Email:* ${v("email")}`,
+      `*Animal:* ${v("animal")}${name ? " – " + name : ""}`,
+      `*Cazare:* ${cazare}`,
+      `*Perioada:* ${d(v("checkin"))} – ${d(v("checkout"))}${nights > 0 ? ` (${nights} ${nights === 1 ? "noapte" : "nopți"})` : ""}`,
+    ];
+    if (nights > 0 && price) lines.push(`*Estimare:* ≈ ${nights * price} lei (avans ${Math.min(nights, 2) * price} lei)`);
+    lines.push(`*Pet Taxi:* ${form.pet_taxi.checked ? "Da" : "Nu"}`);
+    lines.push(`*Afecțiuni / tratament:* ${v("afectiuni")}${v("afectiuni") === "Da" && v("afectiuni_detalii") ? " – " + v("afectiuni_detalii") : ""}`);
+    if (v("animal") === "Câine" && v("sociabil")) lines.push(`*Se înțelege cu alți câini:* ${v("sociabil")}`);
+    if (v("telefon_urgenta")) lines.push(`*Telefon urgențe:* ${v("telefon_urgenta")}`);
+    if (v("mesaj")) lines.push(`*Mesaj:* ${v("mesaj")}`);
+    lines.push("", "Am citit și accept regulamentul de cazare.");
+    const waUrl = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(lines.join("\n"));
+
+    // se deschide direct din click (altfel browserul blochează fereastra nouă)
+    const win = window.open(waUrl, "_blank");
+    if (!win) location.href = waUrl;
+    $(".wa-again", form).href = waUrl;
+    form.classList.add("is-sent");
+
+    // copie și pe email, dacă serverul are PHP (pe hosting); fără erori dacă nu
+    fetch(form.action, { method: "POST", body: new FormData(form) }).catch(() => {});
   });
 })();

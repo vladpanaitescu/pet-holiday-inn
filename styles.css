@@ -681,3 +681,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .map__card img { width: 66px; height: 66px; }
 .rules-bar .brand img { width: 68px; height: 68px; }
 @media (max-width: 860px) { .nav .brand img { width: 56px; height: 56px; margin: -6px 0; } }
+
+/* buton WhatsApp + notă */
+.form__hint { margin: -6px 0 0; text-align: center; font-size: 13px; color: var(--muted); }
+.form button[type=submit] .ic { width: 20px; height: 20px; }
