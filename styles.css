@@ -685,3 +685,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* buton WhatsApp + notă */
 .form__hint { margin: -6px 0 0; text-align: center; font-size: 13px; color: var(--muted); }
 .form button[type=submit] .ic { width: 20px; height: 20px; }
+
+/* ---------- Logo-ul clientului (ilustrația cu pisica și câinele) ---------- */
+.brand img, .map__card img { border-radius: 10px; }
+.foot .brand--full img { width: auto; height: 170px; border-radius: 0; filter: drop-shadow(0 12px 24px rgba(0,0,0,.35)); }
+.loader__logo { width: auto; height: 200px; animation: logoIn .7s var(--ease) both; }
+@media (max-width: 860px) { .foot .brand--full img { height: 150px; } }
