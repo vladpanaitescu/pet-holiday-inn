@@ -1,7 +1,7 @@
 <?php
 // Trimite cererea de rezervare pe email. Setează adresa reală mai jos.
 const TO = 'petholidayinn@gmail.com';
-const FROM = 'no-reply@petholiday.ro'; // trebuie sa fie o adresa de pe domeniul site-ului, altfel Gmail poate respinge mesajul
+const FROM = 'no-reply@petholidayinn.ro'; // trebuie sa fie o adresa de pe domeniul site-ului, altfel Gmail poate respinge mesajul
 
 date_default_timezone_set('Europe/Bucharest');
 header('Content-Type: application/json; charset=utf-8');
