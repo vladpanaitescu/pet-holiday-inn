@@ -705,3 +705,20 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .step:not(:last-child) { border-left: 2px dashed rgba(233, 169, 59, .6); }
   .step:last-child { padding-bottom: 0; }
 }
+
+/* ---------- Hartă la click ---------- */
+.map__consent { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px 24px 110px; text-align: center;
+  background: linear-gradient(rgba(27,43,24,.82), rgba(27,43,24,.82)), url("assets/img/curte.webp") center / cover; color: var(--cream); }
+.map__consent p { max-width: 34em; margin: 0; font-size: 14px; color: rgba(246,237,219,.85); }
+.map__consent a { color: var(--gold); text-decoration: underline; }
+
+/* ---------- Subsol legal: firmă, linkuri, SAL ---------- */
+.foot__legal { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 30px; padding-top: 26px; padding-bottom: 26px; border-top: 1px solid rgba(255,255,255,.08); }
+.foot__company { font-size: 13px; line-height: 1.7; color: rgba(246,237,219,.7); }
+.foot__company b { color: var(--cream); }
+.foot__company a:hover { color: var(--gold); }
+.foot__links { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; font-weight: 700; }
+.foot__links a:hover { color: var(--gold); }
+.foot__sal img { display: block; width: 250px; height: auto; border-radius: 6px; background: #fff; }
+.page-rules .foot { color: rgba(246,237,219,.75); }
+@media (max-width: 860px) { .foot__legal { flex-direction: column; align-items: flex-start; } .foot__sal img { width: 220px; } }

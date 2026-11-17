@@ -11,16 +11,16 @@
   <meta property="og:description" content="Cabane private, curte de 2.000 m² și grijă de medic veterinar. Pentru că și ei merită o vacanță!">
   <meta property="og:image" content="assets/img/logo-client.webp">
   <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon-pet-holiday-64.png"><link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon-pet-holiday-192.png"><link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Caveat:wght@500;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/fonts.css">
   <link rel="preload" as="image" href="assets/img/curte.webp">
-  <link rel="stylesheet" href="styles.css?v=21">
+  <link rel="stylesheet" href="styles.css?v=22">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Pet Holiday – Hotel pentru animale",
+    "legalName": "PET HOLIDAY INN S.R.L.",
+    "taxID": "53104720",
     "description": "Hotel pentru câini și pisici creat de medici veterinari. Cabane private și curte de 2.000 m².",
     "image": "assets/img/curte.webp",
     "address": { "@type": "PostalAddress", "streetAddress": "Strada Pârâului 5", "postalCode": "077125", "addressLocality": "Măgurele", "addressRegion": "Ilfov", "addressCountry": "RO" },
@@ -523,8 +523,8 @@
             <label class="field"><span>Telefon pentru urgențe (altă persoană, opțional)</span><input name="telefon_urgenta" type="tel" placeholder="Numele și telefonul persoanei desemnate"></label>
             <label class="field"><span>Mesaj (opțional)</span><textarea name="mesaj" rows="3" placeholder="Rasă, vârstă, obiceiuri, ce îi place…"></textarea></label>
             <label class="hp" aria-hidden="true">Nu completa<input name="website" tabindex="-1" autocomplete="off"></label>
-            <label class="consent consent--rules"><input type="checkbox" name="regulament" value="Da" required><span>Am citit și accept <a href="regulament.html" target="_blank">Regulamentul de cazare</a>: condițiile obligatorii (vaccinuri, deparazitări, carnet de sănătate), afecțiunile pe care nu le puteți primi, tratamentele pe care le puteți administra, supravegherea video pe timpul nopții și politica de avans și anulare.</span></label>
-            <label class="consent"><input type="checkbox" name="gdpr" required><span>Sunt de acord ca datele mele să fie folosite pentru a fi contactat(ă) în legătură cu rezervarea.</span></label>
+            <label class="consent consent--rules"><input type="checkbox" name="regulament" value="Da" required><span>Am citit și accept <a href="regulament.html" target="_blank">Regulamentul de cazare</a> și <a href="termeni.html" target="_blank">Termenii și condițiile</a>: condițiile obligatorii (vaccinuri, deparazitări, carnet de sănătate), afecțiunile pe care nu le puteți primi, tratamentele pe care le puteți administra, supravegherea video pe timpul nopții și politica de avans și anulare.</span></label>
+            <label class="consent"><input type="checkbox" name="gdpr" required><span>Am citit <a href="confidentialitate.html" target="_blank">Politica de confidențialitate</a> și sunt de acord ca datele mele să fie folosite pentru a fi contactat(ă) în legătură cu rezervarea.</span></label>
             <button class="btn btn--gold btn--block magnetic" type="submit"><svg class="ic"><use href="#i-wa"/></svg><span>Trimite pe WhatsApp</span></button>
             <p class="form__hint">Se deschide WhatsApp cu cererea ta deja scrisă. Tu doar apeși „Trimite”.</p>
             <p class="form__err" role="alert"></p>
@@ -541,7 +541,10 @@
 
       <div class="wrap map">
         <div class="map__frame">
-          <iframe title="Hartă Pet Holiday Măgurele" src="https://www.google.com/maps?q=Strada%20P%C3%A2r%C3%A2ului%205%2C%20077125%20M%C4%83gurele%2C%20Ilfov&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map__consent">
+            <p>Harta este furnizată de Google Maps. Dacă o încarci, Google poate plasa cookie-uri. <a href="confidentialitate.html#cookies">Detalii</a></p>
+            <button type="button" class="btn btn--gold btn--sm" data-map="https://www.google.com/maps?q=Strada%20P%C3%A2r%C3%A2ului%205%2C%20077125%20M%C4%83gurele%2C%20Ilfov&z=15&output=embed"><span>Arată harta</span></button>
+          </div>
           <div class="map__card">
             <img class="logo-full" src="assets/img/logo-client.webp" alt="" width="53" height="66">
             <div><b>Pet Holiday</b><span>Str. Pârâului 5, Măgurele</span></div>
@@ -561,7 +564,7 @@
       </div>
       <div class="foot__col">
         <h4>Navigare</h4>
-        <a href="#despre">Despre noi</a><a href="#cabane">Cabane</a><a href="#tarife">Tarife și program</a><a href="#faq">Întrebări</a><a href="regulament.html">Regulament</a>
+        <a href="#despre">Despre noi</a><a href="#cabane">Cabane</a><a href="#tarife">Tarife și program</a><a href="#faq">Întrebări</a><a href="regulament.html">Regulament</a><a href="termeni.html">Termeni și condiții</a><a href="confidentialitate.html">Confidențialitate</a>
       </div>
       <div class="foot__col">
         <h4>Contact</h4>
@@ -571,7 +574,11 @@
         <a href="https://www.instagram.com/petholidayinn/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
-    <div class="wrap foot__bottom"><span>© <span id="year">2026</span> Pet Holiday. Toate drepturile rezervate.</span><a href="#acasa" class="totop">Sus <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+    <div class="wrap foot__legal">
+      <div class="foot__company"><b>PET HOLIDAY INN S.R.L.</b> · CUI 53104720 · Nr. Reg. Com. J2025096745004<br>Sediu: Jud. Ilfov, Oraș Măgurele, Str. Pârâului nr. 5</div>
+      <a class="foot__sal" href="https://reclamatiisal.anpc.ro/" target="_blank" rel="noopener"><img src="assets/img/anpc-sal.png" alt="ANPC – Soluționarea alternativă a litigiilor" width="250" height="62"></a>
+    </div>
+    <div class="wrap foot__bottom"><span>© <span id="year">2026</span> PET HOLIDAY INN S.R.L. Toate drepturile rezervate.</span><a href="#acasa" class="totop">Sus <svg class="ic"><use href="#i-arrow"/></svg></a></div>
   </footer>
 
   <!-- Condiții de cazare (popup) -->
@@ -634,6 +641,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="main.js?v=19"></script>
+  <script src="main.js?v=20"></script>
 </body>
 </html>

@@ -309,6 +309,14 @@
   $$("[data-close]", cond).forEach(el => el.addEventListener("click", closeCond));
   addEventListener("keydown", e => { if (e.key === "Escape") closeCond(); });
 
+  /* ---------- Harta Google: se încarcă doar la click (fără cookie-uri înainte de acord) ---------- */
+  $$("[data-map]").forEach(b => b.addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.title = "Hartă Pet Holiday Măgurele"; f.src = b.dataset.map; f.loading = "lazy";
+    f.referrerPolicy = "no-referrer-when-downgrade"; f.allowFullscreen = true;
+    b.closest(".map__consent").replaceWith(f);
+  }));
+
   /* ---------- Formular ---------- */
   const form = $("#form");
   const today = new Date().toISOString().slice(0, 10);
